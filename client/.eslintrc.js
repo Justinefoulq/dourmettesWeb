@@ -1,10 +1,10 @@
 // https://eslint.org/docs/user-guide/configuring
 
 module.exports = {
-  root: true,
+  root: tr,
   parserOptions: {
     parser: 'babel-eslint'
-  },
+  },ue
   env: {
     browser: true,
   },

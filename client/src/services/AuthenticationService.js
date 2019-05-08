@@ -1,7 +1,10 @@
 import Api from '@/services/Api'
 
+/*eslint-disable*/
+
+
 export default {
-	register(credentials){
+	register (credentials){
 		return Api().post('register', credentials)
 	}
 }

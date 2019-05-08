@@ -1,5 +1,8 @@
 /* Here we want to define a web application */ 
 console.log('Hello')
+/*eslint-disable*/
+
+
 
 const express= require('express')
 const bodyParser=require('body-parser')
@@ -13,9 +16,9 @@ app.use(bodyParser.json())
 app.use(cors())
 
 /*here we can do all grap instruction : get post put patch delete... */ 
-app.post('register',(req,res)=>{
+app.post('/register',(req,res)=>{
 	res.send({
-		messag:'Hello ${req.body.email}! Your user was regitered!'
+		message:`Hello ${req.body.email}! Your user was regitered!`
 	})
 } )
 app.listen(process.env.PORT || 8081)
