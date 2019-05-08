@@ -13,12 +13,9 @@ app.use(bodyParser.json())
 app.use(cors())
 
 /*here we can do all grap instruction : get post put patch delete... */ 
-app.get('/status', (req,res) => {
+app.post('register',(req,res)=>{
 	res.send({
-		message:'Hola Chicaaa'
+		messag:'Hello ${req.body.email}! Your user was regitered!'
 	})
-
-
-})
-
+} )
 app.listen(process.env.PORT || 8081)
