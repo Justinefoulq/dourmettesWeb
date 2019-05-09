@@ -1,5 +1,5 @@
 {
-  "name": "dourmettesWeb",
+  "name": "ProjetWeb",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Justinefoulq/dourmettesWeb.git"
+    "url": "git+https://github.com/FelixPotie/ProjetWeb.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Justinefoulq/dourmettesWeb/issues"
+    "url": "https://github.com/FelixPotie/ProjetWeb/issues"
   },
-  "homepage": "https://github.com/Justinefoulq/dourmettesWeb#readme",
+  "homepage": "https://github.com/FelixPotie/ProjetWeb#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
