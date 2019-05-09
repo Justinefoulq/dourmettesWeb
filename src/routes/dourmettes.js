@@ -38,11 +38,32 @@ router.get('/suppr/:NumClient',async (req,res)=>{
 
 })
 
-router.get('/modif/:NumClient',async(req,res) => {
+router.get('/modifClient/:NumClient',async(req,res) => {
   const {NumClient}=req.params;
   const client = await pool.query('SELECT * FROM client WHERE NumClient = ?', [NumClient]);
   console.log(client[0])
-  res.render('dourmettes/edit',{client : client[0]});
+  res.render('dourmettes/modifClient',{client : client[0]});
+
+})
+
+router.post('/modifClient/:NumClient', async(req,res)=>{
+  const {NumClient}=req.params;
+  const { MailClient , NomClient , PrenomClient , NumRueClient , RueClient , CodePostalClient , VilleClient , PaysClient , NumTelClient , MdpClient } = req.body;
+  const newClient = {
+    MailClient,
+    NomClient,
+    PrenomClient,
+    NumRueClient,
+    RueClient ,
+    CodePostalClient ,
+    VilleClient ,
+    PaysClient ,
+    NumTelClient ,
+    MdpClient
+  };
+ console.log(newClient);
+ await pool.query('UPDATE client set ? WHERE NumClient = ?', [newClient,NumClient]);
+ res.redirect('/dourmettes/listeclient');
 
 })
 
