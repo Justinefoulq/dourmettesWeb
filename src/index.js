@@ -34,7 +34,6 @@ app.use((req, res, next) =>{
 app.use(require('./routes'))
 app.use(require('./routes/authentification'))
 app.use('/dourmettes', require('./routes/dourmettes'))
-app.use('/dourmettes', require('./routes/dourmettes'))
 
 
 //public
