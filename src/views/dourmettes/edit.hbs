@@ -1,0 +1,79 @@
+<div class="modal-dialog text-center">
+    <div class="col-sm-9 main-section">
+      <div class="modal-content">
+
+        <div class="col-12 user-img">
+          <img src='../../img/face2.png' alt="Photo profile">
+        </div>
+        
+        <div class="modal-header">
+          <h2 class="modal-title">Modifier mes infos</h2>
+        </div>
+
+        <div class="col-12 form-input">
+          <form action ="/dourmettes/inscription" method="POST">
+
+            <div class="form-group">
+              <i class="fas fa-at"></i>
+              <input type="email" class="form-control"  value="{{client.MailClient}}" name="MailClient" >
+            </div>
+
+            <div class="form-group">
+              <i class="far fa-user"></i>
+
+              <input type="text" class="form-control"  value="{{client.NomClient}}"  name="NomClient" >
+            </div>
+
+            <div class="form-group">
+              <i class="far fa-user"></i>
+              <input type="text" class="form-control"  value="{{client.PrenomClient}}"  name="PrenomClient" >
+            </div>
+
+            <div class="form-group">
+              <i class="fas fa-map-marker-alt"></i>
+              <input type="number" class="form-control"  value="{{client.NumRueClient}}"  name="NumRueClient" >
+            </div>
+
+            <div class="form-group">
+              <i class="fas fa-map-marker-alt"></i>
+              <input type="text" class="form-control"  value="{{client.RueClient}} : Rue"  name="RueClient" >
+            </div>
+
+            <div class="form-group">
+              <i class="fas fa-map-marker-alt"></i>
+              <input type="number" class="form-control"  value="{{client.CodePostalClient}}"  name="CodePostalClient" >
+            </div>
+
+            <div class="form-group">
+              <i class="fas fa-map-marker-alt"></i>
+              <input type="text" class="form-control"  value="{{client.VilleClient}}"  name="VilleClient" >
+            </div>
+
+             <div class="form-group">
+              <i class="fas fa-map-marker-alt"></i>
+              <input type="text" class="form-control"  value="{{client.PaysClient}}"  name="PaysClient" >
+            </div>
+
+
+            <div class="form-group">
+              <i class="fas fa-phone"></i>
+              <input type="tel" class="form-control"  value="{{client.NumTelClient}}"  name="NumTelClient" >
+            </div>
+
+            <div class="form-group">
+              <i class="fas fa-lock"></i>
+              <input type="password" class="form-control " value="{{client.MdpClient}}"  name="MdpClient" >
+            </div>
+
+           <!--  <div class="form-group">
+              <i class="fas fa-lock"></i>
+              <input type="password" class="form-control" value=" {{client.MdpClient}}" >
+            </div> -->
+
+            <button type="Submit" class="btn btn-success"> Inscription </button>
+          </form>
+        </div>
+      
+    </div>
+    </div>
+  </div>

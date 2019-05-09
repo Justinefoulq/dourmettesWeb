@@ -26,10 +26,24 @@ router.post('/inscription', async (req, res)=> {
   res.send('received')
 })
 
-router.get('/', async(req,res) => {
-  const links = await pool.query('SELECT * FROM client');
-  console.log(links);
-  res.send('la liste iras ici bébé');
+router.get('/listeclient', async (req,res) => {
+  const client = await pool.query('SELECT * FROM client');
+  res.render('dourmettes/listeclient' ,{ client } );
 });
+
+router.get('/suppr/:NumClient',async (req,res)=>{
+  const {NumClient} = req.params;
+  await pool.query ('DELETE FROM client WHERE NumClient=?',[NumClient]);
+  res.redirect('/dourmettes/listeclient');
+
+})
+
+router.get('/modif/:NumClient',async(req,res) => {
+  const {NumClient}=req.params;
+  const client = await pool.query('SELECT * FROM client WHERE NumClient = ?', [NumClient]);
+  console.log(client[0])
+  res.render('dourmettes/edit',{client : client[0]});
+
+})
 
 module.exports = router

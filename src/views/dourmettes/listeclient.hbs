@@ -1,0 +1,53 @@
+<div class="container table-user ">
+	<div class="row">
+		<div class="table-responsive-lg table-user">
+		  <table class="table">
+		  	<h1> Liste des clients </h1>
+		    <thead>
+			    <tr>
+			      <th scope="col">NumClient</th>
+			      <th scope="col">Mail</th>
+			      <th scope="col">Nom</th>
+			      <th scope="col">Prenom</th>
+			      <th scope="col">Num Rue</th>
+			      <th scope="col">Rue</th>
+			      <th scope="col">Code Postal</th>
+			      <th scope="col">Ville</th>
+			      <th scope="col">Pays</th>
+			      <th scope="col">Telephone</th>
+			      <th scope="col">Supprimer</th>
+			      <th scope="col">Modifier</th>
+			    </tr>
+			  </thead>
+			  
+			  <tbody>
+			  	{{#each client}}
+			  		<tr>
+			  			<th scope="row"> {{ NumClient }} </th>
+			  			<td scope ="row">{{MailClient }} </td>
+			  			<td scope ="row">{{ NomClient}} </td>
+			  			<td scope ="row">{{ PrenomClient}} </td>
+			  			<td scope ="row">{{ NumRueClient }} </td>
+			  			<td scope ="row">{{RueClient }} </td>
+			  			<td scope ="row">{{ CodePostalClient}} </td>
+			  			<td scope ="row">{{ VilleClient}} </td>
+			  			<td scope ="row">{{ PaysClient}} </td>
+			  			<td scope ="row">{{ NumTelClient}} </td>
+			  			<td><a href="/dourmettes/suppr/{{NumClient}}" class="btn btn-outline-danger"> X </a></td>
+			  			<td><a href= "/dourmettes/modif/{{NumClient}}"class="btn btn-outline-secondary"> M </a></td>
+			  			
+				</tbody>
+				</tr>
+				{{else}}
+					<h2> Il n'y a pas de client :( </h2>
+
+				{{/each}}
+
+
+			  
+		  </table>
+		</div>
+
+	</div>
+
+</div>
