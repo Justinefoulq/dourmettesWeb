@@ -1,0 +1,154 @@
+/*Header*/
+
+.navbar{
+	background-color: #898989;
+}
+.navbar a{
+	color: white;
+	font-family: 'Raleway', monospace;
+}
+
+.navbar  a:hover{
+	color: #85D079;
+}
+
+.fas {
+	color : white;
+}
+
+
+.dropdown-menu .dropdown-item {
+	color: #898989;
+}
+
+.navbar .navbar-toggler-icon{
+	 background:brown;  
+}
+
+.carous{
+	width :12%;
+}
+
+/*css accueil page */ 
+/*
+.carousel{
+	width: 100%;
+	margin:auto;
+}
+*/
+
+.l1{
+	padding-top: 1em;
+}
+
+
+.container .card .text-center{
+	width: 18rem;
+}
+
+.card {
+	width: 18rem;
+}
+
+/*connexion + inscription css */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+	font-family: 'Roboto', sans-serif;
+	background: url(../img/fondvert.jpg) no-repeat center center fixed;
+	background-size: cover;
+}
+
+.main-section{
+
+	margin: 0 auto ;
+	margin-top : 11%;
+	padding:0;
+}
+
+.modal-content{
+	background-color: #17544C;
+	opacity: 0.8;
+	border-radius:3%;
+
+}
+
+.modal-header{
+	margin-bottom:10%;
+	text-align: center;
+}
+
+
+.user-img img{
+	height : 40%;
+	width: 40%;
+	color: #17544C;
+
+
+}
+
+.user-img {
+	margin-top: -15%;
+}
+
+.form-group{
+	position : relative ;
+	margin-bottom :8%;
+}
+
+.form-group input{
+	height :42px ;
+	border :0;
+	font-size: 110%;
+	letter-spacing: 1px;
+	padding-left :13%;
+}
+
+.form-group i{
+	position :absolute ;
+	left:4%;
+	padding-top:3%;
+	color :#14463F;
+	font-size:140%;
+	
+
+}
+
+.icon {
+  padding: 10px;
+  background: dodgerblue;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
+
+.form-input button{
+	width:40%;
+	margin :2% 0 7%;
+}
+
+
+.btn-success {
+
+	background-color: #15A964;
+	font-size:130%;
+	border: 1px solid #1D7351;
+
+}
+
+
+.btn-success:hover{
+	background-color: #1D7351;
+	border: 1px solid #1D7351;
+}
+
+.forgot {
+	padding :2% 0 7%;
+}
+
+
+
+
+
+

@@ -1,43 +1,46 @@
-const express = require('express');
-const morgan = require('morgan');
-const exphbs = require('express-handlebars');
-const path = require('path');
+const express = require('express')
+const morgan = require('morgan')
+const exphbs = require('express-handlebars')
+const path = require('path')
 
-//init
-const app = express();
+//initialisation
+const app = express()
 
-//settings
-app.set('port',process.env.PORT || 4000);
-app.set('views', path.join(__dirname, 'views'));
-app.engine('.hbs',exphbs({
-	dafaultLayout: 'main',
-	layoutsDir: path.join(app.get('views'), 'layouts'),
-	partialsDir: path.join(app.get('views'), 'partials'),
-	extname:'.hbs',
-	helpers: require('./lib/handlebars')
-}));
-app.set('view engine','.hbs');
+//setting
+app.set('port', process.env.PORT ||4000)
+app.set('views', path.join(__dirname, 'views'))
 
-//Middlewares
-app.use(morgan('dev'));
-app.use(express.urlencoded({extended:false}));
-app.use(express.json());
+app.engine('.hbs', exphbs({
+  defaultLayout: 'main',
+  layoutsDir: path.join(app.get('views'), 'layouts'),
+  partialsDir: path.join(app.get('views'), 'partials'),
+  extname: '.hbs',
+  helpers: require('./lib/handlebars')
+}))
 
-//Global Variables
-app.use((req,res,next)=>{
+app.set('view engine', '.hbs')
 
-	next();
-});
+//middleware
+app.use(morgan('dev'))
+app.use(express.urlencoded({extended: false}))
+app.use(express.json())
 
-//Routes
-app.use(require('./routes'));
-app.use(require('./routes/authentication'));
-app.use('/dourmettes',require('./routes/dourmettes'));
+//global variable
+app.use((req, res, next) =>{
+  next()
+})
 
-//Public
-app.use(express.static(path.join(__dirname,'public')));
+//route
+app.use(require('./routes'))
+app.use(require('./routes/authentification'))
+app.use('/dourmettes', require('./routes/dourmettes'))
+app.use('/dourmettes', require('./routes/dourmettes'))
 
-//Strating the server
+
+//public
+app.use(express.static(path.join(__dirname, 'public')))
+
+//start server
 app.listen(app.get('port'), () =>{
-	console.log('Server on port', app.get('port'));
+  console.log('Server on port ', app.get('port'))
 })

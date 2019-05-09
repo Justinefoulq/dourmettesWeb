@@ -1,9 +1,8 @@
 module.exports = {
-
-	database: {
-		host: 'localhost',
-		user: 'root',
-		password: '',
-		database: 'projetweb'
-	}
+  database: {
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'dourmettesweb'
+  }
 }
