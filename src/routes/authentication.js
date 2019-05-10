@@ -2,14 +2,14 @@ const express = require('express')
 const router = express.Router()
 
 const passport =require('passport')
+const {isLoggedIn,isNotLoggedIn} = require('../lib/auth');
 
-router.get('/inscription',(req,res)=>{
+
+router.get('/inscription',isNotLoggedIn,(req,res)=>{
 	res.render('auth/inscription');
-
-
 });
 
-router.post('/inscription',	passport.authenticate('local.signup', {
+router.post('/inscription',isNotLoggedIn, passport.authenticate('local.signup', {
 		successRedirect:'/connexion',
 		failureRedirect: '/inscription',
 		failureFlash : true
@@ -17,11 +17,11 @@ router.post('/inscription',	passport.authenticate('local.signup', {
 
 
 
-router.get('/connexion',(req,res)=> {
+router.get('/connexion', isNotLoggedIn ,(req,res)=> {
 	res.render('auth/connexion')
 });
 
-router.post('/connexion', (req,res,next) => {
+router.post('/connexion', isNotLoggedIn, (req,res,next) => {
 
 	passport.authenticate ('local.signin', {
 		successRedirect:'/inscription',
@@ -30,11 +30,11 @@ router.post('/connexion', (req,res,next) => {
 	}) (req,res,next);
 }),
 
-router.get('/mesInfos' , (req,res) =>{
+router.get('/mesInfos' , isLoggedIn, (req,res) =>{
 	res.render('mesInfos');
 })
 
-router.get('/deconnexion' , (req,res) =>{
+router.get('/deconnexion' ,isLoggedIn, (req,res) =>{
 	req.logOut();
 	res.redirect('/connexion');
 });
