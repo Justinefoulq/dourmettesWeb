@@ -24,11 +24,21 @@ router.get('/connexion',(req,res)=> {
 router.post('/connexion', (req,res,next) => {
 
 	passport.authenticate ('local.signin', {
-		successRedirect:'/connexion',
+		successRedirect:'/inscription',
 		failureRedirect: '/connexion',
 		failureFlash: true
 	}) (req,res,next);
 }),
+
+router.get('/mesInfos' , (req,res) =>{
+	res.render('mesInfos');
+})
+
+router.get('/deconnexion' , (req,res) =>{
+	req.logOut();
+	res.redirect('/connexion');
+});
+
 
 
 

@@ -6,28 +6,26 @@ const helpers = require('../lib/helpers');
 
 
 
-passport.use('local.signin', new localStrategy ({
+
+
+passport.use('local.signin',new localStrategy({
 	usernameField: 'MailClient',
 	passwordField: 'MdpClient',
-	passReqToCallback : true 
-}, async (req , MailClient , MdpClient , done) => {
+	passReqToCallback : true
+}, async (req, MailClient, MdpClient, done) =>{
 	console.log(req.body);
-	const rows = await pool.query('SELECT * FROM client WHERE MailClient=?',[MailClient]);
-	console.log(rows)
-	if (rows.length>0) {
-		console.log('je suis dans le if')
+	const rows = await pool.query('SELECT * FROM client WHERE MailClient = ?', [MailClient]);
+	if (rows.length > 0){
 		const client = rows[0];
-		const validPassword = helpers.matchPassword(MdpClient,client.MdpClient);
-
-		if ( validPassword) {
-			done(null,client,req.flash('success', 'Bienvenue ' + client.PrenomClient));
+		const validPassword = await helpers.matchPassword(MdpClient,client.MdpClient);
+		if (validPassword){
+			done(null, client, req.flash('success','Bienvenue ' + client.PrenomClient));
 		} else {
-			done(null,false,req.flash('message','Mot de passe incorrect'))
+			done(null,false, req.flash('message','Mot de passe incorrect'));
 		}
-	}else {
-		return done(null , false , req.flash('message','Il n\'y a pas de compte pour cet Email'));
+	} else {
+		return done(null, false, req.flash('message','Aucun compte lié à cet Email'));
 	}
-
 }));
 
 

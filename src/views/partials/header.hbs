@@ -60,13 +60,32 @@
 		      <li class="nav-item">
 		        <a class="nav-link" href="#">Galerie Photos <span class="sr-only"></span></a>
 		      </li>
+
+
+
 			</ul>
 
 		    <ul class="navbar-nav ml-auto">
+		    	{{#if client}}
+		    		 <li class="nav-item dropdown">
+				        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				          Mon compte
+				        </a>
+
+				        <div class="dropdown-menu dropdown-menu-right " aria-labelledby="navbarDropdown">
+				          <a class="dropdown-item" href="#">Modifier mes infos</a>
+				           <div class="dropdown-divider"></div>
+				          <a class="dropdown-item" href="/mesInfos">Mes réservations</a>   
+				          <div class="dropdown-divider"></div>
+				          <a class="dropdown-item" href="/deconnexion">Deconnexion</a>    
+				        </div>
+				      </li>	
+		    	{{else}}
 
 		      	<li class="nav-item ">
 		        <a class="nav-link" href="/connexion"> <i class="fas fa-user"></i>  Connexion / Inscription <span class="sr-only"></span></a>
 		      	</li>
+		      	{{/if}}
 		    </ul>
 		   
 		  </div>
