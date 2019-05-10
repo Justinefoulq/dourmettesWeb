@@ -15,9 +15,20 @@ router.post('/inscription',	passport.authenticate('local.signup', {
 		failureFlash : true
 }));
 
+
+
 router.get('/connexion',(req,res)=> {
-	res.send('Ceci est la connexion')
+	res.render('auth/connexion')
 });
+
+router.post('/connexion', (req,res,next) => {
+
+	passport.authenticate ('local.signin', {
+		successRedirect:'/connexion',
+		failureRedirect: '/connexion',
+		failureFlash: true
+	}) (req,res,next);
+}),
 
 
 
