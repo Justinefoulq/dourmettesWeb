@@ -3,11 +3,11 @@ const router = express.Router()
 
 const pool = require('../database')
 
-router.get('/inscription', (req, res)=> {
-  res.render('dourmettes/inscription')
+router.get('/ajout', (req, res)=> {
+  res.render('dourmettes/ajout')
 })
 
-router.post('/inscription', async (req, res)=> {
+router.post('/ajout', async (req, res)=> {
   const { MailClient , NomClient , PrenomClient , NumRueClient , RueClient , CodePostalClient , VilleClient , PaysClient , NumTelClient , MdpClient } = req.body;
   const newClient = {
     MailClient,
@@ -23,7 +23,8 @@ router.post('/inscription', async (req, res)=> {
   };
   console.log(newClient)
   await pool.query('INSERT INTO client set ?', [newClient])
-  res.send('received')
+  req.flash('success','ajout réussie');
+  res.redirect('/dourmettes/listeclient')
 })
 
 router.get('/listeclient', async (req,res) => {
@@ -34,6 +35,7 @@ router.get('/listeclient', async (req,res) => {
 router.get('/suppr/:NumClient',async (req,res)=>{
   const {NumClient} = req.params;
   await pool.query ('DELETE FROM client WHERE NumClient=?',[NumClient]);
+  req.flash('success','Client supprimé');
   res.redirect('/dourmettes/listeclient');
 
 })
@@ -61,8 +63,9 @@ router.post('/modifClient/:NumClient', async(req,res)=>{
     NumTelClient ,
     MdpClient
   };
- console.log(newClient);
+ 
  await pool.query('UPDATE client set ? WHERE NumClient = ?', [newClient,NumClient]);
+ req.flash('success','Client modifié');
  res.redirect('/dourmettes/listeclient');
 
 })

@@ -10,12 +10,12 @@
     "type": "git",
     "url": "git+https://github.com/CamilleThomasIG3/TrouveTonAsso.git"
   },
-  "author": "Camille Thomas",
+  "author": "Justine Foulquier ",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/CamilleThomasIG3/TrouveTonAsso/issues"
+    "url": "https://github.com/Justinefoulq/dourmettesWeb"
   },
-  "homepage": "https://github.com/CamilleThomasIG3/TrouveTonAsso/",
+  "homepage": "https://github.com/Justinefoulq/dourmettesWeb",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "bootstrap": "^4.3.1",

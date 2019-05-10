@@ -1,19 +1,38 @@
+
+
+body {
+	height: 100%
+	background-image: url(../img/fondvert.jpg) no-repeat center center fixed;
+}
+
 /*Header*/
 
 .navbar{
 	background-color: #898989;
-00}
+}
 .navbar a{
 	color: white;
-	font-family: 'Raleway', monospace;
+	font-family: 'Oxygen', monospace;
+}
+
+..nav-right{
+	float: right;
 }
 
 .navbar  a:hover{
 	color: #85D079;
 }
 
+
+
 .fas {
 	color : white;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+  color: #fff;
+  text-decoration: none;
+  background-color: #fff;
 }
 
 
@@ -21,12 +40,14 @@
 	color: #898989;
 }
 
-.navbar .navbar-toggler-icon{
-	 background:brown;  
+.dropdown-item a {
+	color :white;
 }
 
+
+
 .carous{
-	width :12%;
+	width :100%;
 }
 
 /*css accueil page */ 
@@ -50,15 +71,32 @@
 	width: 18rem;
 }
 
-/*connexion + inscription css */
 
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+/* css login et signup */ 
 
-body {
+.connexionpage {
 	font-family: 'Roboto', sans-serif;
 	background: url(../img/fondvert.jpg) no-repeat center center fixed;
 	background-size: cover;
+	height: 100%
 }
+
+
+#inscription {
+	font-family: 'Roboto', sans-serif;
+	background: url(../img/fondvert.jpg) no-repeat center center fixed;
+	background-size: cover;
+	height: 100%
+
+}
+
+ #login {
+	font-family: 'Roboto', sans-serif;
+	background: url(../img/fondvert.jpg) no-repeat center center fixed;
+	background-size: cover;
+	height: 100%
+	}
+
 
 .main-section{
 
@@ -72,11 +110,6 @@ body {
 	opacity: 0.8;
 	border-radius:3%;
 
-}
-
-.modal-header h2{
-	text-align: center;
-	margin : auto;
 }
 
 .modal-header{
@@ -134,7 +167,7 @@ body {
 }
 
 
-.btn-success {
+.connexionpage .btn-success {
 
 	background-color: #15A964;
 	font-size:130%;
@@ -143,7 +176,7 @@ body {
 }
 
 
-.btn-success:hover{
+.connexionpage .btn-success:hover{
 	background-color: #1D7351;
 	border: 1px solid #1D7351;
 }
@@ -152,16 +185,21 @@ body {
 	padding :2% 0 7%;
 }
 
-/* Css liste client */ 
-
-.table-user h1{
-	text-align: center;
-	color :#17544C;
+.forgot a { 
+	color :#80DBB7;
+ }
+.connexionpage h1 {
+	color:white;
+	font-size:130%;
+	margin-bottom:5%;
 }
-.table-user{
-	width :100%;
-	margin-left :1%;
-	margin-right :1%;
+
+/*Inscription css */ 
+
+.connexionpage h2{
+	color:white;
+	font-size:200%;
+	margin-bottom:10%;
 }
 
 

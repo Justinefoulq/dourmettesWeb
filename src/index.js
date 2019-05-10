@@ -2,9 +2,17 @@ const express = require('express')
 const morgan = require('morgan')
 const exphbs = require('express-handlebars')
 const path = require('path')
+const flash = require('connect-flash')
+const session = require('express-session')
+const MySQLStore = require('express-mysql-session')
+const passport = require('passport')
+
+const {database} = require('./keys');
+
 
 //initialisation
-const app = express()
+const app = express();
+require('./lib/passport');
 
 //setting
 app.set('port', process.env.PORT ||4000)
@@ -21,18 +29,36 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs')
 
 //middleware
-app.use(morgan('dev'))
-app.use(express.urlencoded({extended: false}))
-app.use(express.json())
+app.use(session({
+	secret:'projetwebdourmettes',
+	resave:false,
+	saveUninitialized:false,
+	store: new MySQLStore(database)
+
+}));
+
+
+app.use(flash());
+app.use(morgan('dev'));
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+
 
 //global variable
 app.use((req, res, next) =>{
+	app.locals.success = req.flash('success');
   next()
 })
 
+
+
 //route
 app.use(require('./routes'))
-app.use(require('./routes/authentification'))
+app.use(require('./routes/authentication'))
 app.use('/dourmettes', require('./routes/dourmettes'))
 
 
