@@ -39,6 +39,10 @@ router.get('/deconnexion' ,isLoggedIn, (req,res) =>{
 	res.redirect('/connexion');
 });
 
+router.get('/mesReservations' , isLoggedIn, (req,res) =>{
+	res.render('mesReservations');
+})
+
 
 
 
