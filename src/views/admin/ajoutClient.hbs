@@ -1,79 +1,92 @@
-<div class="modal-dialog text-center">
-    <div class="col-sm-9 main-section">
-      <div class="modal-content">
+{{#if client.Admin }}
 
-        <div class="col-12 user-img">
-          <img src='../img/face2.png' alt="Photo profile">
-        </div>
+
+  <div class="modal-dialog text-center">
+      <div class="col-sm-9 main-section">
+        <div class="modal-content">
+
+          <div class="col-12 user-img">
+            <img src='../img/face2.png' alt="Photo profile">
+          </div>
+          
+          <div class="modal-header">
+            <h2 class="modal-title">Formulaire d'ajout</h2>
+          </div>
+
+          <div class="col-12 form-input">
+            <form action ="/admin/ajout" method="POST">
+
+              <div class="form-group">
+                <i class="fas fa-at"></i>
+                <input type="email" class="form-control"  placeholder="E-mail" name="MailClient" required>
+              </div>
+
+              <div class="form-group">
+                <i class="far fa-user"></i>
+
+                <input type="text" class="form-control"  placeholder="Nom"  name="NomClient" required>
+              </div>
+
+              <div class="form-group">
+                <i class="far fa-user"></i>
+                <input type="text" class="form-control"  placeholder="Prénom"  name="PrenomClient" required>
+              </div>
+
+              <div class="form-group">
+                <i class="fas fa-map-marker-alt"></i>
+                <input type="number" class="form-control"  placeholder="Adresse : Numero Rue"  name="NumRueClient" required>
+              </div>
+
+              <div class="form-group">
+                <i class="fas fa-map-marker-alt"></i>
+                <input type="text" class="form-control"  placeholder="Adresse : Rue"  name="RueClient" required>
+              </div>
+
+              <div class="form-group">
+                <i class="fas fa-map-marker-alt"></i>
+                <input type="number" class="form-control"  placeholder="Adresse : Code Postal"  name="CodePostalClient" required>
+              </div>
+
+              <div class="form-group">
+                <i class="fas fa-map-marker-alt"></i>
+                <input type="text" class="form-control"  placeholder="Adresse : Ville"  name="VilleClient" required>
+              </div>
+
+               <div class="form-group">
+                <i class="fas fa-map-marker-alt"></i>
+                <input type="text" class="form-control"  placeholder="Adresse : Pays"  name="PaysClient" required>
+              </div>
+
+
+              <div class="form-group">
+                <i class="fas fa-phone"></i>
+                <input type="tel" class="form-control"  placeholder="Numéro de Telephone"  name="NumTelClient" required>
+              </div>
+
+              <div class="form-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" class="form-control " placeholder="Mot de Passe"  name="MdpClient" required>
+              </div>
+
+              <div class="form-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" class="form-control" placeholder=" Confirmation Mot de Passe" required>
+              </div>
+
+              <button type="Submit" class="btn btn-success"> Ajout </button>
+            </form>
+          </div>
         
-        <div class="modal-header">
-          <h2 class="modal-title">Formulaire d'ajout</h2>
-        </div>
-
-        <div class="col-12 form-input">
-          <form action ="/admin/ajout" method="POST">
-
-            <div class="form-group">
-              <i class="fas fa-at"></i>
-              <input type="email" class="form-control"  placeholder="E-mail" name="MailClient" required>
-            </div>
-
-            <div class="form-group">
-              <i class="far fa-user"></i>
-
-              <input type="text" class="form-control"  placeholder="Nom"  name="NomClient" required>
-            </div>
-
-            <div class="form-group">
-              <i class="far fa-user"></i>
-              <input type="text" class="form-control"  placeholder="Prénom"  name="PrenomClient" required>
-            </div>
-
-            <div class="form-group">
-              <i class="fas fa-map-marker-alt"></i>
-              <input type="number" class="form-control"  placeholder="Adresse : Numero Rue"  name="NumRueClient" required>
-            </div>
-
-            <div class="form-group">
-              <i class="fas fa-map-marker-alt"></i>
-              <input type="text" class="form-control"  placeholder="Adresse : Rue"  name="RueClient" required>
-            </div>
-
-            <div class="form-group">
-              <i class="fas fa-map-marker-alt"></i>
-              <input type="number" class="form-control"  placeholder="Adresse : Code Postal"  name="CodePostalClient" required>
-            </div>
-
-            <div class="form-group">
-              <i class="fas fa-map-marker-alt"></i>
-              <input type="text" class="form-control"  placeholder="Adresse : Ville"  name="VilleClient" required>
-            </div>
-
-             <div class="form-group">
-              <i class="fas fa-map-marker-alt"></i>
-              <input type="text" class="form-control"  placeholder="Adresse : Pays"  name="PaysClient" required>
-            </div>
-
-
-            <div class="form-group">
-              <i class="fas fa-phone"></i>
-              <input type="tel" class="form-control"  placeholder="Numéro de Telephone"  name="NumTelClient" required>
-            </div>
-
-            <div class="form-group">
-              <i class="fas fa-lock"></i>
-              <input type="password" class="form-control " placeholder="Mot de Passe"  name="MdpClient" required>
-            </div>
-
-            <div class="form-group">
-              <i class="fas fa-lock"></i>
-              <input type="password" class="form-control" placeholder=" Confirmation Mot de Passe" required>
-            </div>
-
-            <button type="Submit" class="btn btn-success"> Ajout </button>
-          </form>
-        </div>
+      </div>
+      </div>
+    </div>
+{{else}}
+  <div class="container principal">
+    <h1 class="titlenotadmin"> Cet espace est reservé aux administrateurs<h1>
+      <div class="fin ">
+      </div>
+    </div>
       
-    </div>
-    </div>
-  </div>
+
+{{/if}}
+

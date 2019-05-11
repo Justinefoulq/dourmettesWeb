@@ -8,7 +8,7 @@
               <div class="card-body store-body">
                 <div class="product-info">
                   <div class="product-gallery">
-                  		<!--CAROUSSELLL -->
+                      <!--CAROUSSELLL -->
                       <div id="carous" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
                           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -82,42 +82,60 @@
 
           <div class="col-lg-5">
             
-            	<div class="card reservationlocation">
-            		<div class="card-header">
-            			Reservation
-            		</div>
-            		<div class="card-body">
-            			METTRE GESTION RESERVATION 
-            			DATE ARRIVEE 
-            			DATE DEPART 
-            			NP PERSONNE 
-            		</div>
+              <div class="card reservationlocation">
+                <div class="card-header">
+                  Demande de Reservation
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                 
+                    <div class="form-group " id='locationform'>
+                        <i class="far fa-user"></i>
+                        <input type="number" class="form-control"  placeholder="Nombre personne < {{location.NbPlaceLoc}} "  name="NbPersResa" required>
+                     </div>
+             
 
-            	</div>
+                     <div> 
+                      <form method"post" action="traitement.php">
+                        Semaine  :   
+                        <select name="NumSemaine">
 
-            	<div class="card tariflocation">
-            		<div class="card-header">
-            			Tarif de la location
-            		</div>
-            		<div class="card-body">
-            			METTRE GESTION TARIF SAISONNIER 
-            			TARIF EN FONCTION SAISON 
-            			NB NUITE MINIMUM 
-            		</div>
-            		
-            	</div>
+                          {{#each semdispo}}
+                            <option value="{{NumSemaine}}"> {{NumSemaine}} </option>
+                          {{/each}}
 
-            	<div class="card disponibilitelocation">
-            		<div class="card-header">
-            			Disponibilité de la location
-            		</div>
-            		<div class="card-body">
-            			METTRE GESTION DISPONIBILITE LOCATION
-            			DATE NON DISPO
-            			DATE EN ATTENTE
-            			DATE DISPO
-            		</div>
-            	
+                        </select>
+                    </div>
+
+                   <button type="Submit" class="btn btn-success resabutton"> Demander la reservation </button>
+                 </div>
+                </div>
+
+              </div>
+
+              <div class="card tariflocation">
+                <div class="card-header">
+                  Tarif de la location
+                </div>
+                <div class="card-body">
+                  METTRE GESTION TARIF SAISONNIER 
+                  TARIF EN FONCTION SAISON 
+                  NB NUITE MINIMUM 
+                </div>
+                
+              </div>
+
+              <div class="card disponibilitelocation">
+                <div class="card-header">
+                  Disponibilité de la location
+                </div>
+                <div class="card-body">
+                  METTRE GESTION DISPONIBILITE LOCATION
+                  DATE NON DISPO
+                  DATE EN ATTENTE
+                  DATE DISPO
+                </div>
+              
             </div>
           </div>
 

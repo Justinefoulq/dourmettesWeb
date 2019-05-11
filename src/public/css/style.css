@@ -1,12 +1,17 @@
-
+.banner{
+	width: 100%
+}
 
 /*Header*/
 .navbar{
-	background-color: #898989;
+	background-color: #3F6C4A;
+
 }
+
 .navbar a{
 	color: white;
 	font-family: 'Oxygen', monospace;
+	font-size: 110%
 }
 
 ..nav-right{
@@ -17,7 +22,7 @@ p {
 	color :black;
 }
 .navbar  a:hover{
-	color: #85D079;
+	color: #500E0E;
 }
 
 
@@ -46,8 +51,12 @@ body{
 	/*background-image:url("../img/plante.jpg");
 	background-attachment:fixed;
 	background-size: 100%;*/
-	background-color: #BBE9B4;
+	background-color: #F5E0C9;
 }
+.table {
+	width:50%;
+}
+
 
 
 .principal {
@@ -81,7 +90,9 @@ body{
 /*FOOTER */
 
 .page-footer {
-	background-color: #898989;
+	background-color: #3F6C4A;
+	padding-top:0;
+	margin-top : 3%;
 }
 
 .page-footer a ,li,p{
@@ -110,8 +121,7 @@ body{
 }
 
 .modal-content{
-	background-color: #17544C;
-	opacity: 0.8;
+	background-color: #3F6C4A;
 	border-radius:3%;
 
 }
@@ -265,6 +275,11 @@ body{
 }
 
 
+.resabutton{
+	margin:auto;
+}
+
+
 
 
 /*PAGE ACCES CSS /*/
@@ -281,7 +296,17 @@ body{
 	padding-left: 10%;
 }
 
+.fin{
+	padding-bottom: 10%;
+}
 
+.titlenotadmin{
+	text-align: center;
+	color : #17544C;
+	padding-top: 2%;
+	margin-bottom: 3%;
+
+}
 
 
 p,li,a {

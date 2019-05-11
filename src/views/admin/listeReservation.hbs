@@ -1,36 +1,63 @@
-<div class="container principal">
-	<div class="reservation">
-		<div class="row ">
-			<div class="col-lg ">
-				<h1>Les Reservations </h1>
-			</div>
+{{#if client.Admin }}
 
+	<div class="container principal">
+		<div class="reservation">
+			<div class="row ">
+				<div class="col-lg ">
+					<h1>Les Reservations </h1>
 				</div>
-				<!-- FOR EACH RESERVATION -->
-				{{#each reservation}}
-					<div class="row">
-						<div class=" card " id="cardreserv">
-							<h5 class="card-header" > Reservation n° {{NumResa}}</h5>
-							<div class="card-body">
-								<div class="EtatResa"> Etat de la reservation : {{EtatResa}}  </div>
-								<ul>
-									<li>Location : {{NumLoc}}</li>
-									<li>Nb personne : {{NbPersResa}}</li>
-									<li>Date Arrivée : {{DateArriveeResa}}</li>
-									<li>Date Depart : {{DateDepartResa}}</li>
 
-								</ul>
+					</div>
+					<!-- FOR EACH RESERVATION -->
+					{{#each reservation}}
+						<div class="row">
+							<div class=" card " id="cardreserv">
+								<h5 class="card-header" > Reservation n° {{NumResa}}</h5>
+								<div class="card-body">
+									<div class="container">
+										<div class="row">
+											<div class="col-lg-8 ">
+												<div class="EtatResa"> Etat de la reservation :	
+													{{#if ResaValid}} Validé
+													{{else}} {{#if ResaAttente}}	En attente
+																{{else}} Refusé
+																{{/if}}
+													{{/if}}</div>
+
+												<ul>
+													<li>Location : {{NumLoc}}</li>
+													<li>Nb personne : {{NbPersResa}}</li>
+													<li>Date Arrivée : {{DateArriveeResa}}</li>
+													<li>Date Depart : {{DateDepartResa}}</li>
+												</ul>
+												</div>
+											</div>
+											<div class="col-lg-2 ">
+												<a href="/admin/refusResa/{{NumResa}}" class="btn btn-outline-danger"> Refusé Reservation </a>
+							  					<a href= "/admin/validResa/{{NumResa}}"class="btn btn-outline-secondary"> Validé Reservation </a>
+											</div>
+										</div>
+									</div>
 							</div>
 						</div>
-					</div>
-				{{else}}
-					<h2> Vous n'avez pas de reservations </h2>
+					{{else}}
+						<h2> Vous n'avez pas de reservations </h2>
 
-				{{/each}}
+					{{/each}}
 
 
-			
-			</div>
-		</div>		
+				
+				</div>
+			</div>		
+		</div>
 	</div>
-</div>
+{{else}}
+  <div class="container principal">
+    <h1 class="titlenotadmin"> Cet espace est reservé aux administrateurs<h1>
+      <div class="fin ">
+      </div>
+    </div>
+      
+
+{{/if}}
+

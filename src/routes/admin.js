@@ -28,8 +28,8 @@ router.post('/ajoutClient', async (req, res)=> {
 })
 
 router.get('/listeclient', async (req,res) => {
-  const client = await pool.query('SELECT * FROM client');
-  res.render('admin/listeclient' ,{ client } );
+  const clients = await pool.query('SELECT * FROM client');
+  res.render('admin/listeclient' ,{ clients } );
 });
 
 router.get('/listeReservation', async (req,res) => {
@@ -50,9 +50,9 @@ router.get('/suppr/:NumClient',async (req,res)=>{
 
 router.get('/modifClient/:NumClient',async(req,res) => {
   const {NumClient}=req.params;
-  const client = await pool.query('SELECT * FROM client WHERE NumClient = ?', [NumClient]);
+  const clients = await pool.query('SELECT * FROM client WHERE NumClient = ?', [NumClient]);
   console.log(client[0])
-  res.render('admin/modifClient',{client : client[0]});
+  res.render('admin/modifClient',{clients : clients[0]});
 
 })
 
@@ -77,6 +77,21 @@ router.post('/modifClient/:NumClient', async(req,res)=>{
  res.redirect('/admin/listeclient');
 
 })
+
+/*GESTION RESERVATION */ 
+
+/*router.get('/refus/:NumResa',async (req,res)=>{
+  const {NumResa} = req.params;
+  const etatResaInitial= await pool.query('SELECT ')
+
+  await pool.query ('DELETE FROM Reser WHERE NumClient=?',[NumClient]);
+  req.flash('success','Reservation Refusé');
+  res.redirect('/admin/listeclient');
+
+})*/
+
+
+
 
 
 

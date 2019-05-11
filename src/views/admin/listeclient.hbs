@@ -1,4 +1,5 @@
-<div class="container table-user ">
+{{#if client.Admin}}
+<div class="container principal table-user ">
 	<div class="row">
 		<div class="table-responsive-lg table-user">
 		  <table class="table">
@@ -21,7 +22,8 @@
 			  </thead>
 			  
 			  <tbody>
-			  	{{#each client}}
+			  	
+			  	{{#each clients}}
 			  		<tr>
 			  			<th scope="row"> {{ NumClient }} </th>
 			  			<td scope ="row">{{MailClient }} </td>
@@ -51,3 +53,13 @@
 	</div>
 
 </div>
+
+{{else}}
+  <div class="container principal">
+    <h1 class="titlenotadmin"> Cet espace est reservé aux administrateurs<h1>
+      <div class="fin ">
+      </div>
+    </div>
+      
+
+{{/if}}

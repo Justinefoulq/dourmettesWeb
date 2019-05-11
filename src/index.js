@@ -62,6 +62,7 @@ app.use((req, res, next) =>{
 //route
 app.use(require('./routes'))
 app.use(require('./routes/authentication'))
+app.use(require('./routes/compteclient'))
 app.use('/admin', require('./routes/admin'))
 
 //public
