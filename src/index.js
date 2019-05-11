@@ -62,8 +62,7 @@ app.use((req, res, next) =>{
 //route
 app.use(require('./routes'))
 app.use(require('./routes/authentication'))
-app.use('/dourmettes', require('./routes/dourmettes'))
-
+app.use('/admin', require('./routes/admin'))
 
 //public
 app.use(express.static(path.join(__dirname, 'public')))

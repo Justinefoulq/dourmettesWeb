@@ -3,6 +3,7 @@ const router = express.Router()
 
 const passport =require('passport')
 const {isLoggedIn,isNotLoggedIn} = require('../lib/auth');
+const pool = require('../database');
 
 
 router.get('/inscription',isNotLoggedIn,(req,res)=>{
@@ -30,21 +31,27 @@ router.post('/connexion', isNotLoggedIn, (req,res,next) => {
 	}) (req,res,next);
 }),
 
-router.get('/mesInfos' , isLoggedIn, (req,res) =>{
-	res.render('mesInfos');
-})
+
+
 
 router.get('/deconnexion' ,isLoggedIn, (req,res) =>{
 	req.logOut();
 	res.redirect('/connexion');
 });
 
-router.get('/mesReservations' , isLoggedIn, (req,res) =>{
-	res.render('mesReservations');
+
+router.get('/mesInfos' , isLoggedIn, (req,res) =>{
+	res.render('mesInfos');
 })
 
+/*ROUTER MES RESERVATION*/
 
 
+router.get('/mesReservations/:NumClient' , isLoggedIn, async (req,res) =>{
+	const{NumClient}=req.params;
+	const reservation = await pool.query('SELECT * FROM reservation WHERE NumClient=?',[NumClient]);
+    res.render('mesReservations' ,{ reservation} );
+})
 
 
 

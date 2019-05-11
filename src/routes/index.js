@@ -8,18 +8,14 @@ router.get('/', (req, res) =>{
 
 /*ROUTE LOCATION*/
 
-router.get('/location', (req, res) =>{
-  res.render('location');
-})
 
 router.get('/location/:NumLoc', async (req,res) => {
 	const {NumLoc} = req.params
-	const location = await pool.query('SELECT * FROM location WHERE NumLoc=?',[NumLoc]);/*
-	const photos = await pool.query('SELECT * FROM photo WHERE NumLoc=?'[NumLoc]);
-	*/
-    res.render('location' ,{ location : location[0]} );
+	const location = await pool.query('SELECT * FROM location WHERE NumLoc=?',[NumLoc]);
+	/*const {photos} = await pool.query('SELECT CheminPhoto FROM photo WHERE NumLoc=?'[NumLoc]);
+	console.log({photos})*/
+    res.render('location' ,{ location : location[0]});
 });
-
 
 
 

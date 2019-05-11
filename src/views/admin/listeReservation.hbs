@@ -2,7 +2,7 @@
 	<div class="reservation">
 		<div class="row ">
 			<div class="col-lg ">
-				<h1>Mes Reservations </h1>
+				<h1>Les Reservations </h1>
 			</div>
 
 				</div>
@@ -10,23 +10,9 @@
 				{{#each reservation}}
 					<div class="row">
 						<div class=" card " id="cardreserv">
-
-							<h5 class="card-header" > Reservation n° {{NumResa}}</h5> 
+							<h5 class="card-header" > Reservation n° {{NumResa}}</h5>
 							<div class="card-body">
-
-								<div class="EtatResa"> Etat de la reservation : {{EtatResa}}</div>
-									
-								{{!-- 	{{#if EtatResa=1}}
-										<div class="EtatResa"> Etat de la reservation : Validée </div>
-									{{/if}}
-									{{#if EtatResa=2}}
-										<div class="EtatResa"> Etat de la reservation : En attente </div>
-									{{/if}}
-									{{#if EtatResa=2}}
-										<div class="EtatResa"> Etat de la reservation : Refusé </div>
-									{{/if}} --}}
-
-
+								<div class="EtatResa"> Etat de la reservation : {{EtatResa}}  </div>
 								<ul>
 									<li>Location : {{NumLoc}}</li>
 									<li>Nb personne : {{NbPersResa}}</li>
