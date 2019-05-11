@@ -16,6 +16,11 @@ router.get('/location/:NumLoc', async (req,res) => {
 	console.log(photos)
     res.render('location' ,{ location : location[0], photos});
 });
+router.get('/acces', async (req,res) => {
+	res.render('acces')
+});
+
+
 
 
 
