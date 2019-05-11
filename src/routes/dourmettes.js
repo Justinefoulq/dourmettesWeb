@@ -40,6 +40,9 @@ router.get('/suppr/:NumClient',async (req,res)=>{
 
 })
 
+
+
+
 router.get('/modifClient/:NumClient',async(req,res) => {
   const {NumClient}=req.params;
   const client = await pool.query('SELECT * FROM client WHERE NumClient = ?', [NumClient]);

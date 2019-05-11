@@ -13,7 +13,7 @@ module.exports = {
 	    if(!req.isAuthenticated()){
 	      return next();
 	    }
-	    return res.redirect('/accueil');
+	    return res.redirect('/');
 	  }
 
 

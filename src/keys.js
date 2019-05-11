@@ -4,5 +4,8 @@ module.exports = {
     user: 'root',
     password: '',
     database: 'dourmettesweb'
+  },
+  session:{
+  	cookieKey:'dourmetteskeysession'
   }
 }
