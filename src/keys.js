@@ -1,11 +1,9 @@
 module.exports = {
   database: {
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'dourmettesweb'
+    host: '51.254.214.203',
+    user: 'justinef',
+    password: 'ronavaviju',
+    database: 'dourmettesWeb'
   },
-  session:{
-  	cookieKey:'dourmetteskeysession'
-  }
+  
 }

@@ -12,9 +12,9 @@ router.get('/', (req, res) =>{
 router.get('/location/:NumLoc', async (req,res) => {
 	const {NumLoc} = req.params
 	const location = await pool.query('SELECT * FROM location WHERE NumLoc=?',[NumLoc]);
-	/*const {photos} = await pool.query('SELECT CheminPhoto FROM photo WHERE NumLoc=?'[NumLoc]);
-	console.log({photos})*/
-    res.render('location' ,{ location : location[0]});
+	const photos = await pool.query('SELECT CheminPhoto FROM photo WHERE NumLoc=?',[NumLoc]);
+	console.log(photos)
+    res.render('location' ,{ location : location[0], photos});
 });
 
 
