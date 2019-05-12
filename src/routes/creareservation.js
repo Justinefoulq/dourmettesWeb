@@ -28,7 +28,7 @@ router.post('/creareservation/:NumClient/:NumLoc', isLoggedIn, async (req, res)=
 
 	await pool.query('INSERT INTO effectue (NumResa,NumLoc,NumSemaine) VALUES (?,?,?)',[ NbResa[0].IdResa ,NumLoc,NumSemaine]);
 	req.flash('success', 'Demande de Reservation réussi');
-	res.redirect('/');
+	res.redirect('/location/'+NumLoc);
 
 })
 

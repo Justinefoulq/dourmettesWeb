@@ -74,14 +74,19 @@ p {
 
 /*Carousel*/
 .carousel{
- width:100%;
+ width:80%;
  margin:auto;
+ margin-bottom: 1%;
 }
 
 #carous {
 	margin-top: 1%;
 	margin-bottom: 1%;
+	width:100%;
 }
+
+
+
 
 .card{
 	padding-bottom: 1%;
@@ -288,10 +293,12 @@ p {
 	height:50%;
 	width:50%;
 	margin:auto;
+	height: 150px;
 }
 .listscroll ul{
 	overflow:hidden; 
 	overflow-y:scroll;
+
 }
 
 

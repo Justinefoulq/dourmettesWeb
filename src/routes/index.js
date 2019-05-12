@@ -6,21 +6,12 @@ router.get('/', (req, res) =>{
   res.render('index');
 })
 
-/*ROUTE LOCATION*/
+/*ROUTE ACCESS*/
 
-
-/*router.get('/location/:NumLoc', async (req,res) => {
-	const {NumLoc} = req.params
-	console.log(NumLoc);
-	const location = await pool.query('SELECT * FROM location WHERE NumLoc=?',[NumLoc]);
-	const photos = await pool.query('SELECT CheminPhoto FROM photo WHERE NumLoc=?',[NumLoc]);
-	const semdispo = await pool.query('SELECT NumSemaine FROM semaine');
-    res.render('location' ,{ location : location[0], photos,semdispo});
-});
 router.get('/acces', async (req,res) => {
 	res.render('acces')
 });
-*/
+
 
 
 
