@@ -1,0 +1,64 @@
+<div class="container principal">
+    {{#if client.Admin}}
+    
+ <div class="ajoutSemaine">
+    <div class="row ">
+      <div class="ajoutSemaine">
+        <div class="card">
+          <h5 class="card-header"> Ajouter une Saison</h5>
+          <div class="card-body">
+            <form action="/admin/ajoutSaison" method="POST">
+
+
+              <div class="form-group">
+
+                  <i class="far fa-file-alt"></i>
+                  <input type="text" class="form-control"  placeholder="Nom de la Saison"  name="LibSaison" required>
+              </div>
+              <div class="form-group">
+
+                  <i class="far fa-calendar-alt"></i>
+                  <input type="number" class="form-control"  placeholder="Semaine de Debut"  name="SemDebutSaison" required>
+              </div>
+              <div class="form-group">
+
+                  <i class="far fa-calendar-alt"></i>
+                  <input type="number" class="form-control"  placeholder="Semaine de Fin"  name="SemFinSaison" required>
+              </div>
+
+              {{!--  <select class=form-control name="SemDebutSaison">
+
+                            {{#each semaines}}
+                              <option  value="{{NumSemaine}}"> {{NumSemaine}} - {{DateDebutSemaine}} - {{DateFinSemaine}}</option> 
+                            {{/each}}
+                               
+               </select>
+               <label for="formGroupExampleInput">Semaine de Fin de Saison</label>
+               <select class=form-control name="SemFinSaison">
+
+                            {{#each semaines}}
+                              <option  value="{{NumSemaine}}"> {{NumSemaine}} - {{DateDebutSemaine}} - {{DateFinSemaine}}</option> 
+                            {{/each}}
+                               
+               </select> --}}
+
+
+              <button type="submit" class="btn btn-success">Ajouter la Saison </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  {{else}}
+  <div class="container principal">
+    <h1 class="titlenotadmin"> Cet espace est reservé aux administrateurs<h1>
+      <div class="fin ">
+      </div>
+    </div>
+      
+
+{{/if}}

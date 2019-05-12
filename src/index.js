@@ -63,10 +63,16 @@ app.use((req, res, next) =>{
 app.use(require('./routes'))
 app.use(require('./routes/authentication'))
 app.use(require('./routes/compteclient'))
+app.use(require('./routes/adminresa'))
 app.use(require('./routes/creareservation'))
 
 app.use(require('./routes/location'))
 app.use('/admin', require('./routes/admin'))
+app.use('/admin', require('./routes/adminresa'))
+app.use('/admin', require('./routes/adminsemaine'))
+app.use('/admin', require('./routes/adminsaison'))
+app.use('/admin', require('./routes/admintarif'))
+
 
 //public
 app.use(express.static(path.join(__dirname, 'public')))

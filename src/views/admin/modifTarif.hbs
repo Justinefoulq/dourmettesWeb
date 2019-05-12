@@ -1,0 +1,41 @@
+<div class="container principal">
+    {{#if client.Admin}}
+    
+ <div class="ajoutSemaine">
+    <div class="row ">
+      <div class="ajoutSemaine">
+        <div class="card">
+          <h5 class="card-header"> Modifier le Tarif n° {{tarifs.NumTarif}}</h5>
+          <div class="card-body">
+            <form action="/admin/modifTarif/{{tarifs.NumTarif}}" method="POST">
+
+
+               <div class="form-group">
+                  <i class="fas fa-euro-sign"></i>
+                  <input type="number" class="form-control" value="{{tarifs.PrixSemaine}}" name="PrixSemaine" required>
+              </div>
+               <div class="form-group">
+                  <i class="fas fa-users"></i>
+                  <input type="number" class="form-control" value="{{tarifs.SuplementNbPersSup4}}"  name="SuplementNbPersSup4" required>
+              </div>
+
+
+              <button type="submit" class="btn btn-success">Modifier le Tarif </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  {{else}}
+  <div class="container principal">
+    <h1 class="titlenotadmin"> Cet espace est reservé aux administrateurs<h1>
+      <div class="fin ">
+      </div>
+    </div>
+      
+
+{{/if}}

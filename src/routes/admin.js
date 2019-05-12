@@ -3,6 +3,8 @@ const router = express.Router()
 
 const pool = require('../database')
 
+/*AJOUT CLIENT */
+
 router.get('/ajoutClient', (req, res)=> {
   res.render('admin/ajoutClient')
 })
@@ -36,13 +38,13 @@ router.get('/listeclient', async (req,res) => {
 
 
 
-router.get('/supprClient/:NumClient',async (req,res)=>{
+/*router.get('/supprClient/:NumClient',async (req,res)=>{
   const {NumClient} = req.params;
   await pool.query ('DELETE FROM client WHERE NumClient=?',[NumClient]);
   req.flash('success','Client supprimé');
   res.redirect('/admin/listeclient');
 
-})
+})*/
 
 
 
@@ -78,53 +80,23 @@ router.post('/modifClient/:NumClient', async(req,res)=>{
 })
 
 
-/* ROUTE LISTE RESERVATION */ 
-router.get('/listeReservation', async (req,res) => {
-  const reservationValide = await pool.query('SELECT * FROM reservation WHERE ResaValid=1');
-  const reservationAttente = await pool.query('SELECT * FROM reservation WHERE ResaAttente=1');
-  const reservationRefuse = await pool.query('SELECT * FROM reservation WHERE ResaRefus=1');
-  console.log(reservationValide);
-  console.log(reservationAttente);
-  console.log(reservationRefuse);
 
 
 
-  res.render('admin/listeReservation' ,{ reservationValide,reservationAttente,reservationRefuse } );
-
-});
-
-/* ROUTE LISTE SEMAINES */ 
-router.get('/semaines', async (req,res) => {
-  const semaine = await pool.query('SELECT * FROM semaine');
-  res.render('admin/semaines' ,{ semaine } );
-});
-
-/* ROUTE LISTE SAISONS */ 
-router.get('/saisons', async (req,res) => {
-  const saison = await pool.query('SELECT * FROM saison');
-  res.render('admin/saisons' ,{ saison } );
-});
 
 /* ROUTE LISTE Tarifs */ 
-router.get('/tarifs', async (req,res) => {
+router.get('/listeTarifs', async (req,res) => {
   const tarif = await pool.query('SELECT * FROM tarif');
-  res.render('admin/tarifs' ,{ tarif } );
+  res.render('admin/listeTarifs' ,{ tarif } );
 });
 
 
 
 
-/*GESTION RESERVATION */ 
 
-/*router.get('/refus/:NumResa',async (req,res)=>{
-  const {NumResa} = req.params;
-  const etatResaInitial= await pool.query('SELECT ')
 
-  await pool.query ('DELETE FROM Reser WHERE NumClient=?',[NumClient]);
-  req.flash('success','Reservation Refusé');
-  res.redirect('/admin/listeclient');
 
-})*/
+
 
 
 

@@ -13,7 +13,8 @@
 			        <th scope="col">NumResa</th>
 					<th scope="col"> Num Client </th>
 					<th scope="col"> Nombre Personnes  </th>
-					<th scope="col"> Numero Loc </th>
+					<th scope="col"> Location </th>
+					<th scope="col"> Semaine Demandé </th>
 					<th scope="col"> Validé </th>
 					<th scope="col"> Refusé </th>
 
@@ -25,7 +26,8 @@
 						<th scope="row">{{NumResa}}</th>
 						<td>{{NumClient}}</td>
 						<td>{{NbPersResa}}</td>
-						<td>{{NumLoc}}</td>
+						<td>{{LibeleLoc}}</td>
+						<td>{{NumSemaine}}</td>
 						<td><a href="/admin/valideResa/{{NumResa}}" class="btn btn-success">Valider</a></td>
 						<td><a href="/admin/refusResa/{{NumResa}}"class="btn btn-danger"> Refuser</a></td>
 
@@ -51,8 +53,9 @@
 			        <th scope="col">NumResa</th>
 					<th scope="col"> Num Client </th>
 					<th scope="col"> Nombre Personnes  </th>
-					<th scope="col"> Numero Loc </th>
-					<th scope="col"> Suppr </th>
+					<th scope="col"> Location </th>
+					<th scope="col"> Semaine Demandé </th>
+					{{!-- <th scope="col"> Suppr </th> --}}
 
 			      </tr>
 			    </thead>
@@ -62,8 +65,9 @@
 						<th scope="row">{{NumResa}}</th>
 						<td>{{NumClient}}</td>
 						<td>{{NbPersResa}}</td>
-						<td>{{NumLoc}}</td>
-						<td><a href="/admin/supprResa/{{NumResa}}" class="btn btn-danger">Supprimer</a></td>
+						<td>{{LibeleLoc}}</td>
+						<td>{{NumSemaine}}</td>{{!-- 
+						<td><a href="/admin/supprResa/{{NumResa}}" class="btn btn-danger">Supprimer</a></td> --}}
 
 						
 					</tr>
@@ -86,8 +90,9 @@
 			        <th scope="col">NumResa</th>
 					<th scope="col"> Num Client </th>
 					<th scope="col"> Nombre Personnes  </th>
-					<th scope="col"> Numero Loc </th>
-					<th scope="col"> Suppr </th>
+					<th scope="col"> Location </th>
+					<th scope="col"> Semaine Demandé </th>
+					{{!-- <th scope="col"> Suppr </th> --}}
 
 			      </tr>
 			    </thead>
@@ -97,13 +102,14 @@
 						<th scope="row">{{NumResa}}</th>
 						<td>{{NumClient}}</td>
 						<td>{{NbPersResa}}</td>
-						<td>{{NumLoc}}</td>
-						<td><a href="/admin/supprResa/{{NumResa}}" class="btn btn-danger">Supprimer</a></td>
+						<td>{{LibeleLoc}}</td>
+						<td>{{NumSemaine}}</td>{{!-- 
+						<td><a href="/admin/supprResa/{{NumResa}}" class="btn btn-danger">Supprimer</a></td> --}}
 
 						
 					</tr>
 				{{else}}
-						<h2> Il n'y a pas de réservation Validé</h2>
+						<h2> Il n'y a pas de réservation Refusé</h2>
 
 				{{/each}}
 			    </tbody>

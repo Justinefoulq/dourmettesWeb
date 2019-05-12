@@ -416,8 +416,43 @@ p {
 }
 .ajouter .btn-success{
 	font-size:130%;
+	text-align: center;
+	margin:auto;
+	margin-top: 5%
 	
 }
+
+/*AJOUT SEMAINE*/
+
+.ajoutSemaine{
+	text-align: center;
+	
+	margin:auto;
+	padding-right: 10%;
+	margin-top: 5%
+}
+
+.ajoutSemaine .card{
+	width:180%;
+	text-align:center;
+}
+
+.ajoutSemaine form{
+	width:80%;
+	margin:auto;
+}
+
+
+.ajoutSemaine .card-header{
+	background-color: #3F6C4A;
+	color:white;
+}
+
+
+
+
+
+
 
 
 

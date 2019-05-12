@@ -1,7 +1,7 @@
 <div class="container  principal">
 	{{#if client.Admin}}
 		<div class="admin">
-			<h1 > Liste des saisons </h1>
+			<h1 > Liste des clients </h1>
 		</div>
 		<div class="table-wrapper-scroll-y  my-custom-scrollbar">
 				
@@ -20,7 +20,6 @@
 			      <th scope="col">Pays</th>
 			      <th scope="col">Telephone</th>
 			      <th scope="col">Modif</th>
-			      <th scope="col">Suppr</th>
 
 		      </tr>
 		    </thead>
@@ -39,7 +38,6 @@
 			  			<td scope ="row">{{ PaysClient}} </td>
 			  			<td scope ="row">{{ NumTelClient}} </td>
 			  			<td><a href="/admin/modifClient/{{NumClient}}" class="btn btn-info">M</a></td>
-			  			<td><a href= "/admin/supprClient/{{NumClient}}"class="btn btn-danger">X</a></td>
 			  			
 				</tbody>
 				</tr>

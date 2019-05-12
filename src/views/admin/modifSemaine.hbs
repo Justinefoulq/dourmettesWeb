@@ -1,0 +1,43 @@
+<div class="container principal">
+    {{#if client.Admin}}
+    
+ <div class="ajoutSemaine">
+    <div class="row ">
+      <div class="ajoutSemaine">
+        <div class="card">
+          <h5 class="card-header"> Modifier la Semaine n° {{semaines.NumSemaine}}</h5>
+          <div class="card-body">
+            <form action="/admin/modifSemaine/{{semaines.NumSemaine}}" method="POST">
+
+
+               <div class="form-group">
+                  <label for="formGroupExampleInput">Semaine de Debut : {{semaines.DateDebutSemaine}} </label>
+                  <i class="far fa-calendar-alt"></i>
+                  <input type="date" class="form-control" value="{{semaines.DateDebutSemaine}}" name="DateDebutSemaine" required>
+              </div>
+               <div class="form-group">
+                 <label for="formGroupExampleInput">Semaine de Fin : {{semaines.DateFinSemaine}} </label>
+                  <i class="far fa-calendar-alt"></i>
+                  <input type="date" class="form-control"  placeholder="{{semaines.DateFinSemaine}}"  name="DateFinSemaine" required>
+              </div>
+
+
+              <button type="submit" class="btn btn-success">Modifier la Semaine</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  {{else}}
+  <div class="container principal">
+    <h1 class="titlenotadmin"> Cet espace est reservé aux administrateurs<h1>
+      <div class="fin ">
+      </div>
+    </div>
+      
+
+{{/if}}
