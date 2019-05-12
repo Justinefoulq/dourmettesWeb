@@ -10,6 +10,11 @@ router.get('/mesInfos' , isLoggedIn, (req,res) =>{
 	res.render('mesInfos');
 })
 
+
+
+
+
+
 /*ROUTER MES RESERVATION*/
 
 
