@@ -30,54 +30,7 @@ router.post('/creareservation/:NumClient/:NumLoc', isLoggedIn, async (req, res)=
 	req.flash('success', 'Demande de Reservation réussi');
 	res.redirect('/');
 
-
-
-
-
 })
-
-
-
-
-
-
-
-router.get('/ajoutClient', (req, res)=> {
-  res.render('admin/ajoutClient')
-})
-
-router.post('/ajoutClient', async (req, res)=> {
-  const { MailClient , NomClient , PrenomClient , NumRueClient , RueClient , CodePostalClient , VilleClient , PaysClient , NumTelClient , MdpClient } = req.body;
-  const newClient = {
-    MailClient,
-    NomClient,
-    PrenomClient,
-    NumRueClient,
-    RueClient ,
-    CodePostalClient ,
-    VilleClient ,
-    PaysClient ,
-    NumTelClient ,
-    MdpClient
-  };
-  console.log(newClient)
-  await pool.query('INSERT INTO client set ?', [newClient])
-  req.flash('success','ajout Client réussie');
-  res.redirect('/admin/listeclient')
-})
-
-
-router.get('/Commander/:idS/:idC', isLoggedIn, async (req, res)=> {
-	const {idS, idC} = req.params;
-	
-	console.log(idS);
-	console.log(idC);
-	await pool.query('INSERT INTO commande (DateCommande, IdClient, IdShamp, IdAdmin, ComEncours, ComAccept, ComRef) VALUES (?, ?, ?, ?, ?, ?, ?)',[date,idC,idS,1,1,0,0]);
-	req.flash('success', 'Commande réussi');
-	res.redirect('/');
-})
-
-
 
 
 

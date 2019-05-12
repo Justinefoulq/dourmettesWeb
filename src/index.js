@@ -64,6 +64,8 @@ app.use(require('./routes'))
 app.use(require('./routes/authentication'))
 app.use(require('./routes/compteclient'))
 app.use(require('./routes/creareservation'))
+
+app.use(require('./routes/location'))
 app.use('/admin', require('./routes/admin'))
 
 //public

@@ -275,9 +275,35 @@ body{
 }
 
 
-.resabutton{
+.boutonresa{
+	margin-left:30%;
+	margin-top: 5%;
+}
+
+.pickerweek { 
+	margin-bottom: 2%; 
+}
+
+.listscroll ul{
+	height:50%;
+	width:50%;
 	margin:auto;
 }
+.listscroll ul{
+	overflow:hidden; 
+	overflow-y:scroll;
+}
+
+
+.tablesaison{
+	width:90%;
+	margin-right: 0;
+	margin-left:0;
+
+}
+
+
+
 
 
 

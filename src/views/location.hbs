@@ -90,49 +90,66 @@
                   <div class="row">
 
                     <form action ="/creareservation/{{client.NumClient}}/{{location.NumLoc}}" method="POST">
-                 
+                        <h5> Nombre de personnes</h5>
                         <div class="form-group " id='locationform'>
                             <i class="far fa-user"></i>
-                            <input type="number" class="form-control"  placeholder="Nombre personne < {{location.NbPlaceLoc}} "  name="NbPersResa" required>
+                            <input type="number" class="form-control"  placeholder="Nb< {{location.NbPlaceLoc}} "  name="NbPersResa" required>
                         </div>
                  
 
-                         <div> 
+                         <div class="pickerweek"> 
+                            <h5> Semaine demandé </h5>
+                           <select class=form-control>
 
-                           <div class="form-group " id='locationform'>
-                            <i class="far fa-user"></i>
-                            <input type="number" class="form-control"  placeholder="Semaine souhaité "  name="NumSemaine" required>
-                          </div>
+                            {{#each semdispo}}
+                               <option value="{{NumSemaine}}"> {{NumSemaine}} </option>
+                            {{/each}}
+                               
+                          </select>
 
 
-                          {{!-- <form method"post" action="traitement.php">
-                            Semaine  :   
-                            <select name="NumSemaine">
 
-                              {{#each semdispo}}
-                                <option value="{{NumSemaine}}"> {{NumSemaine}} </option>
-                              {{/each}}
-
-                            </select>
-                          </form>
-                         </div> --}}
 
                        </div>
                       </div>
-
+                        <div class="boutonresa">
                          <button type="Submit" class="btn btn-success "> Demander la reservation </button>
+                       </div>
                     </form>
                     
                   </div>
-
+                </div>
               <div class="card tariflocation">
                 <div class="card-header">
                   Tarif de la location
                 </div>
                 <div class="card-body">
-                  METTRE GESTION TARIF SAISONNIER 
-                  TARIF EN FONCTION SAISON 
-                  NB NUITE MINIMUM 
+                 <div class="tablesaison">
+                    <table class="table table-bordered ">
+                      <thead>
+                        <tr>
+                          <th scope="col">Saison</th>
+                          <th scope="col">Semaine Debut </th>
+                          <th scope="col">Semaine Fin </th>
+                          <th scope="col">Prix Semaine </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {{#each saison}}
+                          <tr>
+                            <th scope="row"> {{LibSaison}}</th>
+                            <td>{{SemDebutSaison}}</td>
+                            <td>{{SemFinSaison}}</td>
+                            <td> {{PrixSemaine}}</td>
+                          </tr>
+                        {{/each}}
+                
+                        
+                      </tbody>
+                    </table>
+                  </div>
+
+
                 </div>
                 
               </div>
@@ -142,10 +159,16 @@
                   Disponibilité de la location
                 </div>
                 <div class="card-body">
-                  METTRE GESTION DISPONIBILITE LOCATION
-                  DATE NON DISPO
-                  DATE EN ATTENTE
-                  DATE DISPO
+
+                    <div class="listscroll">
+                      <ul>
+                      {{#each semdispo}}
+                      <li> Semaine {{NumSemaine}}</li>
+                      {{/each}}
+                    </ul>
+                    </div>
+                 
+                
                 </div>
               
             </div>
