@@ -1,4 +1,70 @@
+{{#if client.Admin}}
 
+	<nav class="navbar navbar-expand-lg  " >
+
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false">
+				<i class="fas fa-bars"></i>
+			</button>
+
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    <ul class="navbar-nav mr-auto">
+
+		      <li class="nav-item">
+		        <a class="nav-link" href="/admin/listeReservation"> Reservations  <span class="sr-only"></span></a>
+		      </li>
+
+		      <li class="nav-item">
+		        <a class="nav-link" href="/admin/listeclient"> Clients  <span class="sr-only"></span></a>
+		      </li>
+
+
+
+		       <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          Gestion
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		           <a class="dropdown-item" href="/admin/semaines">Gestion Semaines</a>
+		          	<div class="dropdown-divider"></div>
+		          <a class="dropdown-item" href="/admin/saisons">Gestion Saisons </a>
+		          	<div class="dropdown-divider"></div>
+		          <a class="dropdown-item" href="/admin/tarifs">Gestion Tarifs </a>
+						    
+		        </div>
+		      </li>
+
+
+		      <li class="nav-item dropdown">
+		       
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		           <a class="dropdown-item" href="/location/4">Gestion Semaines</a>
+		          	<div class="dropdown-divider"></div>
+		          <a class="dropdown-item" href="/location/3">Gestion Saisons </a>
+		          	<div class="dropdown-divider"></div>
+		          <a class="dropdown-item" href="/location/3">Gestion Tarifs </a>
+						    
+		        </div>
+		      </li>
+
+			</ul>
+
+		    <ul class="navbar-nav ml-auto">
+		    	{{#if client}}
+		    		<li class="nav-item">
+				        <a class="nav-link" href="/deconnexion"> Deconnexion  <span class="sr-only"></span></a>
+				     </li>
+		    	{{else}}
+
+		      	<li class="nav-item ">
+		        <a class="nav-link" href="/connexion"> <i class="fas fa-user"></i>  Connexion / Inscription <span class="sr-only"></span></a>
+		      	</li>
+		      	{{/if}}
+		    </ul>
+		   
+		  </div>
+		</nav>
+
+{{else}}
 	<nav class="navbar navbar-expand-lg  " >
 
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false">
@@ -90,4 +156,7 @@
 		    </ul>
 		   
 		  </div>
-		</nav>
+		</nav>}
+
+
+{{/if}}

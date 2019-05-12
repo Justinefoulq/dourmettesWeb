@@ -1,56 +1,122 @@
-{{#if client.Admin }}
-
-	<div class="container principal">
-		<div class="reservation">
-			<div class="row ">
-				<div class="col-lg ">
-					<h1>Les Reservations </h1>
-				</div>
-
-					</div>
-					<!-- FOR EACH RESERVATION -->
-					{{#each reservation}}
-						<div class="row">
-							<div class=" card " id="cardreserv">
-								<h5 class="card-header" > Reservation n° {{NumResa}}</h5>
-								<div class="card-body">
-									<div class="container">
-										<div class="row">
-											<div class="col-lg-5 ">
-												<div class="EtatResa"> Etat de la reservation :	
-													{{#if ResaValid}} Validé
-													{{else}} {{#if ResaAttente}}	En attente
-																{{else}} Refusé
-																{{/if}}
-													{{/if}}</div>
-
-												<ul>
-													<li>Location : {{NumLoc}}</li>
-													<li>Nb personne : {{NbPersResa}}</li>
-													<li>Date Arrivée : {{DateArriveeResa}}</li>
-													<li>Date Depart : {{DateDepartResa}}</li>
-												</ul>
-												</div>
-											</div>
-											<div class="col-lg-5 ">
-												<a href="/admin/refusResa/{{NumResa}}" class="btn btn-outline-danger"> Refusé Reservation </a>
-							  					<a href= "/admin/validResa/{{NumResa}}"class="btn btn-outline-secondary"> Validé Reservation </a>
-											</div>
-										</div>
-									</div>
-							</div>
-						</div>
-					{{else}}
-						<h2> Vous n'avez pas de reservations </h2>
-
-					{{/each}}
-
-
+<div class="container  principal">
+	{{#if client.Admin}}
+		<div class="admin attente">
+			<h1 > Les Réservations</h1>
+		
+			<h2 > En attente</h2>
+		
+			<div class="table-wrapper-scroll-y  my-custom-scrollbar">
 				
-				</div>
-			</div>		
+			  <table class="table table-bordered mb-0">
+			    <thead class="tetetable">
+			      <tr>
+			        <th scope="col">NumResa</th>
+					<th scope="col"> Num Client </th>
+					<th scope="col"> Nombre Personnes  </th>
+					<th scope="col"> Numero Loc </th>
+					<th scope="col"> Validé </th>
+					<th scope="col"> Refusé </th>
+
+			      </tr>
+			    </thead>
+			    <tbody>
+			      {{#each reservationAttente}}
+					<tr>
+						<th scope="row">{{NumResa}}</th>
+						<td>{{NumClient}}</td>
+						<td>{{NbPersResa}}</td>
+						<td>{{NumLoc}}</td>
+						<td><a href="/admin/valideResa/{{NumResa}}" class="btn btn-success">Valider</a></td>
+						<td><a href="/admin/refusResa/{{NumResa}}"class="btn btn-danger"> Refuser</a></td>
+
+						
+					</tr>
+				{{else}}
+						<h2> Il n'y a pas de réservation en attente </h2>
+
+				{{/each}}
+			    </tbody>
+			  </table>
+			 </div>
+		  
 		</div>
-	</div>
+
+		<div class="admin valide">
+			<h2 > Validé </h2>
+			<div class="table-wrapper-scroll-y  my-custom-scrollbar">
+				
+			  <table class="table table-bordered mb-0">
+			    <thead class="tetetable">
+			      <tr>
+			        <th scope="col">NumResa</th>
+					<th scope="col"> Num Client </th>
+					<th scope="col"> Nombre Personnes  </th>
+					<th scope="col"> Numero Loc </th>
+					<th scope="col"> Suppr </th>
+
+			      </tr>
+			    </thead>
+			    <tbody>
+			      {{#each reservationValide}}
+					<tr>
+						<th scope="row">{{NumResa}}</th>
+						<td>{{NumClient}}</td>
+						<td>{{NbPersResa}}</td>
+						<td>{{NumLoc}}</td>
+						<td><a href="/admin/supprResa/{{NumResa}}" class="btn btn-danger">Supprimer</a></td>
+
+						
+					</tr>
+				{{else}}
+						<h2> Il n'y a pas de réservation Validé</h2>
+
+				{{/each}}
+			    </tbody>
+			  </table>
+			  
+			</div>
+		</div>
+		<div class="admin refuse">
+			<h2 > Refusé </h2>
+			<div class="table-wrapper-scroll-y  my-custom-scrollbar">
+				
+			  <table class="table table-bordered mb-0">
+			    <thead class="tetetable">
+			      <tr>
+			        <th scope="col">NumResa</th>
+					<th scope="col"> Num Client </th>
+					<th scope="col"> Nombre Personnes  </th>
+					<th scope="col"> Numero Loc </th>
+					<th scope="col"> Suppr </th>
+
+			      </tr>
+			    </thead>
+			    <tbody>
+			      {{#each reservationRefuse}}
+					<tr>
+						<th scope="row">{{NumResa}}</th>
+						<td>{{NumClient}}</td>
+						<td>{{NbPersResa}}</td>
+						<td>{{NumLoc}}</td>
+						<td><a href="/admin/supprResa/{{NumResa}}" class="btn btn-danger">Supprimer</a></td>
+
+						
+					</tr>
+				{{else}}
+						<h2> Il n'y a pas de réservation Validé</h2>
+
+				{{/each}}
+			    </tbody>
+			  </table>
+			  
+			</div>
+		</div>
+
+</div>
+
+
+
+	
 {{else}}
   <div class="container principal">
     <h1 class="titlenotadmin"> Cet espace est reservé aux administrateurs<h1>
@@ -60,4 +126,10 @@
       
 
 {{/if}}
+
+
+
+
+
+
 

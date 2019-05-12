@@ -1,61 +1,116 @@
-<div class="container principal">
-	<div class="reservation">
-		<div class="row ">
-			<div class="col-lg ">
-				<h1>Mes Reservations </h1>
-			</div>
+<div class="container  principal">
 
-				</div>
-				<!-- FOR EACH RESERVATION -->
-				{{#each reservation}}
-					<div class="row">
-						<div class=" card " id="cardreserv">
+		<div class="admin attente">
+			<h1 > Mes Réservations</h1>
+		
+			<h2 > En attente</h2>
+		
+			<div class="table-wrapper-scroll-y  my-custom-scrollbar">
+				
+			  <table class="table table-bordered mb-0">
+			    <thead class="tetetable">
+			      <tr>
+			        <th scope="col">NumResa</th>
+					<th scope="col"> Nombre Personnes  </th>
+					<th scope="col"> Location </th>
+					<th scope="col"> Semaine demandée </th>
 
-							<h5 class="card-header" > Reservation n° {{NumResa}}
+			      </tr>
+			    </thead>
+			    <tbody>
+			      {{#each reservationAttente}}
+					<tr>
+						<th scope="row">{{NumResa}}</th>
+						<td>{{NbPersResa}}</td>
+						<td>{{LibeleLoc}}</td>
+						<td>{{NumSemaine}}</td>
 
-
-
-							</h5> 
-							<div class="card-body">
-
-								<div class="EtatResa"> Etat de la reservation :	
-									{{#if ResaValid}} Validé
-									{{else}} {{#if ResaAttente}}	En attente
-												{{else}} Refusé
-												{{/if}}
-									{{/if}}</div>
-
-
-									
-								{{!-- 	{{#if EtatResa=1}}
-										<div class="EtatResa"> Etat de la reservation : Validée </div>
-									{{/if}}
-									{{#if EtatResa=2}}
-										<div class="EtatResa"> Etat de la reservation : En attente </div>
-									{{/if}}
-									{{#if EtatResa=2}}
-										<div class="EtatResa"> Etat de la reservation : Refusé </div>
-									{{/if}} --}}
-
-
-								<ul>
-									<li>Location : {{NumLoc}}</li>
-									<li>Nb personne : {{NbPersResa}}</li>
-									<li>Date Arrivée : {{DateArriveeResa}}</li>
-									<li>Date Depart : {{DateDepartResa}}</li>
-
-								</ul>
-							</div>
-						</div>
-					</div>
+						
+					</tr>
 				{{else}}
-					<h2> Vous n'avez pas de reservations </h2>
+						<h2> Vous n'avez pas de réservation en attente </h2>
 
 				{{/each}}
+			    </tbody>
+			  </table>
+			 </div>
+		  
+		</div>
 
+		<div class="admin valide">
+			<h2 > Validé </h2>
+			<div class="table-wrapper-scroll-y  my-custom-scrollbar">
+				
+			  <table class="table table-bordered mb-0">
+			    <thead class="tetetable">
+			      <tr>
+			       <th scope="col">NumResa</th>
+					<th scope="col"> Nombre Personnes  </th>
+					<th scope="col"> Numero Loc </th>
+					<th scope="col"> Semaine demandé </th>
 
-			
+			      </tr>
+			    </thead>
+			    <tbody>
+			      {{#each reservationValide}}
+					<tr>
+						<th scope="row">{{NumResa}}</th>
+						<td>{{NbPersResa}}</td>
+						<td>{{LibeleLoc}}</td>
+						<td>{{NumSemaine}}</td>
+
+						
+					</tr>
+				{{else}}
+						<h2> Vous n'avez pas de réservation Validé</h2>
+
+				{{/each}}
+			    </tbody>
+			  </table>
+			  
 			</div>
-		</div>		
-	</div>
+		</div>
+		<div class="admin refuse">
+			<h2 > Refusé </h2>
+			<div class="table-wrapper-scroll-y  my-custom-scrollbar">
+				
+			  <table class="table table-bordered mb-0">
+			    <thead class="tetetable">
+			      <tr>
+			        <th scope="col">NumResa</th>
+					<th scope="col"> Nombre Personnes  </th>
+					<th scope="col"> Numero Loc </th>
+					<th scope="col"> Semaine demandé </th>
+
+			      </tr>
+			    </thead>
+			    <tbody>
+			      {{#each reservationRefus}}
+					<tr>
+						<th scope="row">{{NumResa}}</th>
+						<td>{{NbPersResa}}</td>
+						<td>{{LibeleLoc}}</td>
+						<td>{{NumSemaine}}</td>
+
+						
+					</tr>
+				{{else}}
+						<h2> Vous n'avez pas de réservation Refusé</h2>
+
+				{{/each}}
+			    </tbody>
+			  </table>
+			  
+			</div>
+		</div>
+
 </div>
+
+
+
+
+
+
+
+
+

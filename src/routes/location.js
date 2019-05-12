@@ -28,19 +28,6 @@ router.get('/location/:NumLoc', async (req,res) => {
 
 
 
-/*router.get('/location/:NumLoc', async (req,res) => {
-	const {NumLoc} = req.params
-	console.log(NumLoc)
-	const location = await pool.query('SELECT * FROM location WHERE NumLoc=?',[NumLoc]);
-	const photos = await pool.query('SELECT CheminPhoto FROM photo WHERE NumLoc=?',[NumLoc]);
-	console.log(photos);
-	const semdispo = await pool.query('SELECT S.NumSemaine FROM semaine S WHERE NOT IN ( SELECT E.NumSemaine FROM effectue.E WHERE E.NumLoc=?',[NumLoc]);
-	console.log(coucou);
-    res.render('location' ,{ location : location[0], photos,semdispo});
-});
-
-*/
-
 
 
 

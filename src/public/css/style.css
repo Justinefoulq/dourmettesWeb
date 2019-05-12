@@ -1,8 +1,31 @@
+/*Background*/
+body{
+	/*background-image:url("../img/plante.jpg");
+	background-attachment:fixed;
+	background-size: 100%;*/
+	background-color: #F5E0C9;
+}
+
+
+
+
+.principal {
+	margin : auto ;
+	margin-top:3%;
+	margin-bottom: :3%;
+	padding-bottom: 3%;
+	background-color : white;
+	
+	
+}
+
+
+
+/*Header*/
+
 .banner{
 	width: 100%
 }
-
-/*Header*/
 .navbar{
 	background-color: #3F6C4A;
 
@@ -44,29 +67,6 @@ p {
 
 .dropdown-item a {
 	color :white;
-}
-
-/*Background*/
-body{
-	/*background-image:url("../img/plante.jpg");
-	background-attachment:fixed;
-	background-size: 100%;*/
-	background-color: #F5E0C9;
-}
-.table {
-	width:50%;
-}
-
-
-
-.principal {
-	margin : auto ;
-	margin-top:3%;
-	margin-bottom: :3%;
-	padding-bottom: 3%;
-	background-color : white;
-	
-	
 }
 
 
@@ -308,6 +308,7 @@ body{
 
 
 
+
 /*PAGE ACCES CSS /*/
 
 .acces .card{
@@ -333,6 +334,84 @@ body{
 	margin-bottom: 3%;
 
 }
+
+/*ADMIN CSS */ 
+
+
+.tetetable{
+	background-color: #3F6C4A;
+	width:100%;
+	color:white;
+	position:relative;
+}
+
+
+.my-custom-scrollbar {
+	position: relative;
+	padding-top: 3%;
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-bottom: 5%;
+	height: 500px;
+	overflow: auto;
+	text-align: center;
+	
+	}
+	
+.table-wrapper-scroll-y {
+	display: block;
+	padding-bottom:5%;
+}
+
+.admin h1{
+	text-align: center;
+	color : #17544C;
+
+}
+/*--------------etat des reservation------*/
+.attente h2{
+	padding-left: 5%;
+	color : #F09D34;
+}
+
+.attente .tetetable{ 
+	background-color: #F09D34;
+	
+}
+
+.valide h2{
+	padding-left: 5%;
+	padding-top: 2%;
+	color : #49BD37;
+}
+
+.valide .tetetable{ 
+	background-color: #49BD37;
+	
+}
+
+.refuse h2{
+	padding-left: 5%;
+	padding-top: 2%;
+	color : #C82D2D;
+}
+
+.refuse .tetetable{ 
+	background-color: #C82D2D;	
+}
+
+/*------fin etat -----*/ 
+
+.ajouter{
+	text-align: center;
+	margin:auto;
+	margin-top: 5%
+}
+.ajouter .btn-success{
+	font-size:130%;
+	
+}
+
 
 
 p,li,a {

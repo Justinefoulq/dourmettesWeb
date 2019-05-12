@@ -20,9 +20,14 @@ router.get('/mesInfos' , isLoggedIn, (req,res) =>{
 
 router.get('/mesReservations/:NumClient' , isLoggedIn, async (req,res) =>{
 	const{NumClient}=req.params;
-	const reservation = await pool.query('SELECT * FROM reservation WHERE NumClient=?',[NumClient]);
-    res.render('mesReservations' ,{ reservation} );
+	const reservationValide = await pool.query('SELECT R.NumResa, R.NbPersResa, E.NumSemaine, L.LibeleLoc FROM reservation R, effectue E , location L WHERE NumClient=? AND E.NumResa=R.NumResa AND L.NumLoc=E.NumLoc AND ResaValid=1',[NumClient]);
+	console.log(reservationValide)
+	const reservationAttente = await pool.query('SELECT R.NumResa, R.NbPersResa, E.NumSemaine, L.LibeleLoc FROM reservation R, effectue E , location L WHERE NumClient=? AND E.NumResa=R.NumResa AND L.NumLoc=E.NumLoc AND ResaAttente=1',[NumClient]);
+	const reservationRefus = await pool.query('SELECT R.NumResa, R.NbPersResa, E.NumSemaine, L.LibeleLoc FROM reservation R, effectue E , location L WHERE NumClient=? AND E.NumResa=R.NumResa AND L.NumLoc=E.NumLoc AND ResaRefus=1',[NumClient]);
+    res.render('mesReservations' ,{ reservationValide,reservationAttente,reservationRefus} );
 })
+
+
 
 
 

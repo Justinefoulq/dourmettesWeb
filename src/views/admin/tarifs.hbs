@@ -1,0 +1,61 @@
+<div class="container  principal">
+	{{#if client.Admin}}
+		<div class="admin">
+			<h1 > Liste des Tarifs </h1>
+		</div>
+		<div class="table-wrapper-scroll-y  my-custom-scrollbar">
+				
+
+		  <table class="table table-bordered mb-0">
+		    <thead class="tetetable">
+		      <tr>
+		        <th scope="col">Num Tarif</th>
+				<th scope="col">Prix Tarif </th>
+				<th scope="col"> Suplément si >4pers /pers </th>
+				<th scope="col"> Modif </th>
+				<th scope="col"> Suppr </th>
+
+		      </tr>
+		    </thead>
+		    <tbody>
+		      {{#each tarif}}
+				<tr>
+					<th scope="row">{{NumTarif}}</th>
+					<td>{{PrixSemaine}} €</td>
+					<td>{{SuplementNbPersSup4}} /pers</td>
+					<td><a href="/admin/modifSaison/{{NumTarif}}" class="btn btn-info">M</a></td>
+					<td><a href="/admin/supprSaison/{{NumTarif}}"class="btn btn-danger">X</a></td>
+
+					
+				</tr>
+			{{else}}
+					<h2> Il n'y a pas de tarif </h2>
+
+			{{/each}}
+		    </tbody>
+		  </table>
+		  
+		</div>
+		<div class="container">
+			<div class="ajouter">
+				<div class="col-lg-12">
+			  		<a href="/admin/ajoutSaison" class="btn btn-success btn-lg"> Ajouter un Tarif</a>
+				</div>
+			</div>
+		</div>
+
+	
+</div>
+
+
+
+	
+{{else}}
+  <div class="container principal">
+    <h1 class="titlenotadmin"> Cet espace est reservé aux administrateurs<h1>
+      <div class="fin ">
+      </div>
+    </div>
+      
+
+{{/if}}
