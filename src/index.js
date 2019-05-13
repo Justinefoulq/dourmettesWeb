@@ -7,6 +7,7 @@ const session = require('express-session')
 const MySQLStore = require('express-mysql-session')
 const passport = require('passport')
 const mysql = require('mysql')
+const cookieSession =require('cookie-session')
 
 const {database} = require('./keys');
 
@@ -32,7 +33,12 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs')
 
 //middleware
-app.use(session({
+
+app.use(flash());
+
+
+app.use(cookieSession({
+  maxAge: 1*60*1000,
 	secret:'projetwebdourmettes',
 	resave:false,
 	saveUninitialized:false,
@@ -41,7 +47,7 @@ app.use(session({
 }));
 
 
-app.use(flash());
+
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
