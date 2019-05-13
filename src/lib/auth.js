@@ -21,17 +21,29 @@ module.exports = {
 	  },
 
 	  isAdmin(req,res,next){
-	  	if(req.isAdmin()) {
+	  	if(req.user.Admin==1) {
 	  		return next();
 	  	}
-	  	return res.redirect('/');
-	  	
+	  	return res.redirect('/Error');	
+	  },
+	  isGoodClient(req,res,next){
+	  	const {NumClient} = req.params;
+	  
+	  	if(NumClient==req.user.NumClient) {
+	  		return next();
+	  	}
+	  	return res.redirect('/Error');	
+	  },
+
+	  isGoodClientResa(req,res,next){
+	  	const {NumClient,NumLoc} = req.params;
+	  	if(NumClient==req.user.NumClient) {
+	  		return next();
+	  	}
+	  	return res.redirect('/Error');	
 	  }
 
 }
 
-/*isAdmin(async(req,res) =>{
-	const{NumClient}=req.params;
-	const admin = isnull (await pool.query('SELECT * FROM `client` WHERE Admin IS NOT NULL'));
-})*/
+
 

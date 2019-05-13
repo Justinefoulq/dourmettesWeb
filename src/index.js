@@ -38,7 +38,7 @@ app.use(flash());
 
 
 app.use(cookieSession({
-  maxAge: 1*60*1000,
+  maxAge: 1*60*60*1000,
 	secret:'projetwebdourmettes',
 	resave:false,
 	saveUninitialized:false,
@@ -91,8 +91,15 @@ app.use('/admin', require('./routes/adminsaison'))
 app.use('/admin', require('./routes/admintarif'))
 
 
+
+
 //public
 app.use(express.static(path.join(__dirname, 'public')))
+
+app.get('*', function(req, res){
+  res.status(400).redirect('/Error')
+
+});
 
 //start server
 app.listen(app.get('port'), () =>{

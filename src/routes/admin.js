@@ -1,15 +1,16 @@
 const express = require('express')
 const router = express.Router()
+const {isAdmin} = require('../lib/auth');
 
 const pool = require('../database')
 
 /*AJOUT CLIENT */
 
-router.get('/ajoutClient', (req, res)=> {
+router.get('/ajoutClient',isAdmin, (req, res)=> {
   res.render('admin/ajoutClient')
 })
 
-router.post('/ajoutClient', async (req, res)=> {
+router.post('/ajoutClient',isAdmin, async (req, res)=> {
   const { MailClient , NomClient , PrenomClient , NumRueClient , RueClient , CodePostalClient , VilleClient , PaysClient , NumTelClient , MdpClient } = req.body;
   const newClient = {
     MailClient,
@@ -31,7 +32,7 @@ router.post('/ajoutClient', async (req, res)=> {
 
 /* ROUTE LISTE CLIENT + MODIF + SUPPR */ 
 
-router.get('/listeclient', async (req,res) => {
+router.get('/listeclient',isAdmin, async (req,res) => {
   const clients = await pool.query('SELECT * FROM client');
   res.render('admin/listeclient' ,{ clients } );
 });
@@ -49,7 +50,7 @@ router.get('/listeclient', async (req,res) => {
 
 
 
-router.get('/modifClient/:NumClient',async(req,res) => {
+router.get('/modifClient/:NumClient',isAdmin,async(req,res) => {
   const {NumClient}=req.params;
   const clients = await pool.query('SELECT * FROM client WHERE NumClient = ?', [NumClient]);
   
@@ -57,7 +58,7 @@ router.get('/modifClient/:NumClient',async(req,res) => {
 
 })
 
-router.post('/modifClient/:NumClient', async(req,res)=>{
+router.post('/modifClient/:NumClient',isAdmin, async(req,res)=>{
   const {NumClient}=req.params;
   const { MailClient , NomClient , PrenomClient , NumRueClient , RueClient , CodePostalClient , VilleClient , PaysClient , NumTelClient , MdpClient } = req.body;
   const newClient = {

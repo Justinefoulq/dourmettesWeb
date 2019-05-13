@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const passport =require('passport')
-const {isLoggedIn,isNotLoggedIn} = require('../lib/auth');
+const {isLoggedIn,isNotLoggedIn,isGoodClientResa} = require('../lib/auth');
 const pool = require('../database');
 
 
@@ -11,7 +11,7 @@ const pool = require('../database');
 
 /*CREATION RESERVATION*/ 
 
-router.post('/creareservation/:NumClient/:NumLoc', isLoggedIn, async (req, res)=> {
+router.post('/creareservation/:NumClient/:NumLoc',isGoodClientResa, isLoggedIn, async (req, res)=> {
 	const{NumClient,NumLoc }= req.params;
 	console.log(NumClient);
 	console.log(NumLoc);

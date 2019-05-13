@@ -12,6 +12,12 @@ router.get('/acces', async (req,res) => {
 	res.render('acces')
 });
 
+router.get('/Error', (req, res)=> {
+  res.render('Error')
+})
+
+
+
 
 
 

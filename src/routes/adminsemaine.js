@@ -1,10 +1,11 @@
 const express = require('express')
 const router = express.Router()
+const {isAdmin} = require('../lib/auth');
 
 const pool = require('../database')
 
 /* ROUTE LISTE SEMAINES */ 
-router.get('/listeSemaines', async (req,res) => {
+router.get('/listeSemaines',isAdmin, async (req,res) => {
   const semaine = await pool.query('SELECT * FROM semaine');
   res.render('admin/listeSemaines' ,{ semaine } );
 });
@@ -14,7 +15,7 @@ router.get('/ajoutSemaine', (req, res)=> {
 })
 
 
-router.post('/ajoutSemaine', async (req, res)=> {
+router.post('/ajoutSemaine',isAdmin, async (req, res)=> {
   const {NumSemaine,DateDebutSemaine,DateFinSemaine } = req.body;
   const newSem = { NumSemaine,DateDebutSemaine,DateFinSemaine};
   
@@ -24,7 +25,7 @@ router.post('/ajoutSemaine', async (req, res)=> {
 })
 
 /*Info pour le form de modification semaint */ 
-router.get('/modifSemaine/:NumSemaine',async(req,res) => {
+router.get('/modifSemaine/:NumSemaine', isAdmin, async(req,res) => {
   const {NumSemaine}=req.params;
   const semaines = await pool.query('SELECT * FROM semaine WHERE NumSemaine = ?', [NumSemaine]);
   
@@ -32,7 +33,7 @@ router.get('/modifSemaine/:NumSemaine',async(req,res) => {
 
 })
 /*Modification de semaine via form*/
-router.post('/modifSemaine/:NumSemaine', async(req,res)=>{
+router.post('/modifSemaine/:NumSemaine',isAdmin, async(req,res)=>{
   const {NumSemaine}=req.params;
   console.log(NumSemaine)
   const {DateDebutSemaine,DateFinSemaine} = req.body;
@@ -48,7 +49,7 @@ router.post('/modifSemaine/:NumSemaine', async(req,res)=>{
 
 /*SUPPRESSION SEMAINE */
 
-router.get('/supprSemaine/:NumSemaine',async (req,res)=>{
+router.get('/supprSemaine/:NumSemaine', isAdmin, async (req,res)=>{
   const {NumSemaine} = req.params;
   await pool.query ('DELETE FROM semaine WHERE NumSemaine=?',[NumSemaine]);
   req.flash('message','Semaine n°' +NumSemaine+ ' supprimée');

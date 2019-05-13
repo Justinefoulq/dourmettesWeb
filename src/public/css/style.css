@@ -448,6 +448,25 @@ p {
 	color:white;
 }
 
+.errorhandle h1{
+	font-size: 350%;
+	text-align: center;
+	color : #AA0F0F;
+
+}
+
+.errorhandle h2{
+	text-align: center;
+	color : #AA0F0F;
+
+}
+
+.errorhandleimage {
+	height: 300px;
+	background-repeat: no-repeat;
+	margin-left:28%;
+	background-image: url(https://img.linuxfr.org/img/68747470733a2f2f6d656469612e67697068792e636f6d2f6d656469612f737256675870717a35516454472f67697068792e676966/giphy.gif);
+}
 
 
 
