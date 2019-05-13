@@ -6,8 +6,11 @@ const flash = require('connect-flash')
 const session = require('express-session')
 const MySQLStore = require('express-mysql-session')
 const passport = require('passport')
+const mysql = require('mysql')
 
 const {database} = require('./keys');
+
+const pool = mysql.createPool(database)
 
 
 //initialisation
@@ -54,8 +57,16 @@ app.use((req, res, next) =>{
   app.locals.message = req.flash('message');
   app.locals.client = req.user;
 
+
   next()
 })
+
+/*app.use(async() => {
+   const Location =  await pool.query('SELECT * FROM location');
+  app.locals.allLocation = Location;
+  console.log(Location.NumLoc);
+})*/
+/* console.log(app.locals.allLocation);*/
 
 
 
