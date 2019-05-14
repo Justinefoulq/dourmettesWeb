@@ -246,6 +246,9 @@ p {
 
 .EtatResa{
 	font-weight: bold;
+
+
+
 }
 #cardreserv{
 	width: 90%;
@@ -285,13 +288,14 @@ p {
 	margin-top: 5%;
 }
 
+
 .pickerweek { 
-	margin-bottom: 2%; 
+	padding-bottom-bottom: 2%; 
 }
 
 .listscroll ul{
 	height:50%;
-	width:50%;
+	width:100%;
 	margin:auto;
 	height: 150px;
 }
@@ -407,6 +411,12 @@ p {
 	background-color: #C82D2D;	
 }
 
+.ajouterresa{
+	text-align: right;
+	margin:auto;
+	
+}
+
 /*------fin etat -----*/ 
 
 .ajouter{
@@ -421,6 +431,7 @@ p {
 	margin-top: 5%
 	
 }
+
 
 /*AJOUT SEMAINE*/
 
@@ -447,6 +458,8 @@ p {
 	background-color: #3F6C4A;
 	color:white;
 }
+
+/*PAGE ERROR*/ 
 
 .errorhandle h1{
 	font-size: 350%;

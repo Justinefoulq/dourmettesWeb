@@ -58,14 +58,17 @@ app.use(passport.session());
 
 
 //global variable
-app.use((req, res, next) =>{
+app.use(async(req, res, next) =>{
 	app.locals.success = req.flash('success');
   app.locals.message = req.flash('message');
   app.locals.client = req.user;
+/*  global.LibTypesLoc= await pool.query('SELECT LibeleType FROM typeLoc')
+  console.log(LibTypesLoc)*/
 
 
   next()
 })
+
 
 /*app.use(async() => {
    const Location =  await pool.query('SELECT * FROM location');

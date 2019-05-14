@@ -7,9 +7,9 @@ const pool = require('../database')
 
 /* ROUTE LISTE RESERVATION */ 
 router.get('/listeReservation',isAdmin, async (req,res) => {
-  const reservationValide = await pool.query('SELECT R.NumClient,R.NumResa, R.NbPersResa, E.NumSemaine, L.LibeleLoc FROM reservation R, effectue E , location L WHERE  E.NumResa=R.NumResa AND L.NumLoc=E.NumLoc AND ResaValid=1');
-  const reservationAttente = await pool.query('SELECT R.NumClient,R.NumResa, R.NbPersResa, E.NumSemaine, L.LibeleLoc FROM reservation R, effectue E , location L WHERE  E.NumResa=R.NumResa AND L.NumLoc=E.NumLoc AND ResaAttente=1');
-  const reservationRefuse = await pool.query('SELECT R.NumClient,R.NumResa, R.NbPersResa, E.NumSemaine, L.LibeleLoc FROM reservation R, effectue E , location L WHERE  E.NumResa=R.NumResa AND L.NumLoc=E.NumLoc AND ResaRefus=1');
+  const reservationValide = await pool.query('SELECT R.NumClient,R.NumResa, R.NbPersResa, E.NumSemaine, L.LibeleLoc FROM reservation R, effectue E , location L WHERE  E.NumResa=R.NumResa AND L.NumLoc=E.NumLoc AND ResaValid=1 ORDER BY R.NumResa DESC' );
+  const reservationAttente = await pool.query('SELECT R.NumClient,R.NumResa, R.NbPersResa, E.NumSemaine, L.LibeleLoc FROM reservation R, effectue E , location L WHERE  E.NumResa=R.NumResa AND L.NumLoc=E.NumLoc AND ResaAttente=1 ORDER BY R.NumResa DESC');
+  const reservationRefuse = await pool.query('SELECT R.NumClient,R.NumResa, R.NbPersResa, E.NumSemaine, L.LibeleLoc FROM reservation R, effectue E , location L WHERE  E.NumResa=R.NumResa AND L.NumLoc=E.NumLoc AND ResaRefus=1 ORDER BY R.NumResa DESC ');
   console.log(reservationValide)
   
 
@@ -34,20 +34,28 @@ router.get('/refusResa/:NumResa',isAdmin, async (req,res)=>{
 	res.redirect('/admin/listeReservation');
 })
 
+router.get('/ajoutReservation', async(req, res)=> {
+  const locations= await pool.query('SELECT NumLoc,LibeleLoc FROM location')
+  const semaines=await pool.query('SELECT * FROM semaine')
+  const clients=await pool.query('SELECT * FROM client')
+  res.render('admin/ajoutReservation', {locations,semaines,clients})
+})
+
+router.post('/ajoutReservation',isAdmin, async (req, res)=> {
+  const { NumLoc,NumSemaine,NumClient,NbPersResa,ResaValid,ResaAttente } = req.body;
+  console.log(NumLoc)
+  console.log(NumSemaine)
+  await pool.query('INSERT INTO reservation  (NumLoc, NumClient,NbPersResa, ResaValid, ResaAttente, ResaRefus) VALUES (?, ?, ?, ?, ?, ?)', [NumLoc, NumClient,NbPersResa, ResaValid, ResaAttente,0])
+ 
+  const NbResa = await pool.query('SELECT count(NumResa) AS IdResa FROM reservation')
+
+  await pool.query('INSERT INTO effectue (NumResa,NumLoc,NumSemaine) VALUES (?,?,?)',[ NbResa[0].IdResa ,NumLoc,NumSemaine]);
+  req.flash('success','Ajout de la reservation réussi');
+  res.redirect('/listeReservation');
+
+})
 
 
-
-/*GESTION RESERVATION */ 
-
-/*router.get('/refus/:NumResa',async (req,res)=>{
-  const {NumResa} = req.params;
-  const etatResaInitial= await pool.query('SELECT ')
-
-  await pool.query ('DELETE FROM Reser WHERE NumClient=?',[NumClient]);
-  req.flash('success','Reservation Refusé');
-  res.redirect('/admin/listeclient');
-
-})*/
 
 
 

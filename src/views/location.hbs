@@ -102,7 +102,7 @@
                            <select class=form-control name="NumSemaine">
 
                             {{#each semdispo}}
-                              <option  value="{{NumSemaine}}"> {{NumSemaine}} </option> 
+                             <option  value="{{NumSemaine}}"> {{NumSemaine}} : Du {{DateDebutSemaine}} au  {{DateFinSemaine}}</option> 
                             {{/each}}
                                
                           </select>
@@ -163,7 +163,7 @@
                     <div class="listscroll">
                       <ul>
                       {{#each semdispo}}
-                      <li> Semaine {{NumSemaine}}</li>
+                      <li> Semaine {{NumSemaine}} : Du {{DateDebutSemaine}} au  {{DateFinSemaine}} </li>
                       {{/each}}
                     </ul>
                     </div>

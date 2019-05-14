@@ -1,0 +1,87 @@
+<div class="container principal">
+    {{#if client.Admin}}
+    
+ <div class="ajoutSemaine">
+    <div class="row ">
+      <div class="ajoutSemaine">
+        <div class="card">
+          <h5 class="card-header"> Ajouter une Reservation</h5>
+          <div class="card-body">
+            <form action="/admin/ajoutReservation" method="POST">
+
+              <div class="pickerresa"> 
+                <h5> Location de la Reservation </h5>
+               <select class=form-control name="NumLoc">
+
+                {{#each locations}}
+                  <option  value="{{NumLoc}}"> {{NumLoc}} : {{LibeleLoc}} </option>
+                {{/each}}
+                   
+              </select>
+            </div>
+
+             <div class="pickerresa"> 
+                <h5> Semaine de la Reservation </h5>
+               <select class=form-control name="NumSemaine">
+
+                {{#each semaines}}
+                  <option  value="{{NumSemaine}}"> {{NumSemaine}} : Du {{DateDebutSemaine}} au  {{DateFinSemaine}}</option>
+                {{/each}}
+                   
+              </select>
+            </div>
+            <div class="pickerresa"> 
+                <h5> Client de la Reservation </h5>
+               <select class=form-control name="NumClient">
+
+                {{#each clients}}
+                  <option  value="{{NumClient}}"> {{NumClient}} : {{NomClient}} {{PrenomClient}} </option>
+                {{/each}}
+                   
+              </select>
+            </div>
+
+              <h5> Nombre de personne Reservation </h5>
+             <div class="form-group">
+
+                  <i class="fas fa-list-ol"></i>
+                  <input type="number" class="form-control"  placeholder="Nb pers resa"  name="NbPersResa" required>
+              </div>
+
+             <div class="pickerresa"> 
+                <h5> Reservation validé </h5>
+               <select class=form-control type ="number" name="ResaValid">
+                  <option  value=1> 1  </option> 
+                  <option  value=0> 0 </option>       
+              </select>
+            </div>
+            <div class="pickerresa"> 
+                <h5> Reservation en Attente </h5>
+               <select class=form-control type ="number" name="ResaAttente">
+                  <option  value=1> 1  </option> 
+                  <option  value=0> 0 </option>       
+              </select>
+            </div>
+
+              </br>
+              <button type="submit" class="btn btn-success">Ajouter la reservation </button>
+              
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  {{else}}
+  <div class="container principal">
+    <h1 class="titlenotadmin"> Cet espace est reservé aux administrateurs<h1>
+      <div class="fin ">
+      </div>
+    </div>
+      
+
+{{/if}}
