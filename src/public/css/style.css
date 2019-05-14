@@ -548,6 +548,28 @@ p {
 
 
 
+.logofooter {
+	text-align: center;
+	margin:auto;
+	margin-bottom: 0;
+}
+
+.logofooter img{
+	margin-top: 2%;
+	width: 70%;
+	margin-bottom: 0;
+
+}
+.col-md-3 .mx-auto .logofooter{
+	margin-top: 0;
+}
+.containerfooter{
+	padding-left: 0;
+	padding-right: 0;
+	margin-left:0;
+	margin-right:0;
+
+}
 
 
 
