@@ -20,8 +20,17 @@ router.post('/ajoutAppliquer',isAdmin, async (req, res)=> {
   
   await pool.query('INSERT INTO applique SET ?', [newApplique])
   req.flash('success',' Tarifs n°'+NumTarif+ 'appliqué sur la location n°'+NumLoc+ 'pour la saison n°' +NumSaison);
-  res.redirect('/admin/listeTarifs')
+  res.redirect('/admin/listeApplique')
 })
+
+/*LISTE RELATION APPLIQUE */
+
+router.get('/listeApplique',isAdmin,async(req,res) => {
+  const applique = await pool.query('SELECT L.LibeleLoc, S.LibSaison,T.PrixSemaine, T.SuplementNbPersSup4 FROM location L, saison S, tarif T, applique A WHERE A.NumLoc=L.NumLoc AND A.NumSaison=S.NumSaison AND T.NumTarif=A.NumTarif')
+  
+  res.render('admin/listeApplique',{applique})
+})
+
 
 
 module.exports = router
