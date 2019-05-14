@@ -93,6 +93,7 @@ app.use('/admin', require('./routes/adminsemaine'))
 app.use('/admin', require('./routes/adminsaison'))
 app.use('/admin', require('./routes/admintarif'))
 app.use('/admin', require('./routes/adminapplique'))
+app.use('/admin', require('./routes/adminvisite'))
 
 
 

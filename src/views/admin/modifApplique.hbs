@@ -1,0 +1,63 @@
+<div class="container principal">
+    {{#if client.Admin}}
+    
+ <div class="ajoutSemaine">
+    <div class="row ">
+      <div class="ajoutSemaine">
+        <div class="card">
+          <h5 class="card-header"> Modification de la relation 'Appliquer' n°{{appliques.NumTarif}}-{{appliques.NumLoc}}-{{appliques.NumSaison}} </h5>
+          <div class="card-body">
+            <form action="/admin/modifApplique/{{appliques.NumTarif}}/{{appliques.NumLoc}}/{{appliques.NumSaison}}" method="POST">
+
+
+              <div class="pickerresa"> 
+                <h5> Sur quelle Location ? </h5>
+               <select class=form-control name="NumLoc">
+
+                {{#each locations}}
+                  <option  value="{{NumLoc}}"> {{NumLoc}} : {{LibeleLoc}} </option>
+                {{/each}}
+                   
+              </select>
+            </div>
+
+             <div class="pickerresa"> 
+                <h5> Sur quelle Saison?</h5>
+               <select class=form-control name="NumSaison">
+
+                {{#each saisons}}
+                  <option  value="{{NumSaison}}"> {{NumSaison}} - {{LibSaison}} </option>
+                {{/each}}
+                   
+              </select>
+            </div>
+            <div class="pickerresa"> 
+                <h5> Avec quel Tarif? </h5>
+               <select class=form-control name="NumTarif">
+
+                {{#each tarifs}}
+                  <option  value="{{NumTarif}}"> {{NumTarif}} - {{PrixSemaine}} - Suplement : {{SuplementNbPersSup4}} /pers si NbPers>4 </option>
+                {{/each}}
+                   
+              </select>
+            </div>
+             </br>
+              <button type="submit" class="btn btn-success">Modifier la relation Appliquer </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  {{else}}
+  <div class="container principal">
+    <h1 class="titlenotadmin"> Cet espace est reservé aux administrateurs<h1>
+      <div class="fin ">
+      </div>
+    </div>
+      
+
+{{/if}}

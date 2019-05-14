@@ -1,0 +1,50 @@
+<div class="container principal">
+    {{#if client.Admin}}
+    
+ <div class="ajoutSemaine">
+    <div class="row ">
+      <div class="ajoutSemaine">
+        <div class="card">
+          <h5 class="card-header"> Modifier la visite n° {{visites.NumVisite}}</h5>
+          <div class="card-body">
+            <form action="/admin/modifVisite/{{visites.NumVisite}}" method="POST">
+
+              <h5> Titre de la visite </h5>
+               <div class="form-group">
+                  <input type="text" class="form-control"  value="{{visites.TitreVisite}}"  name="TitreVisite" required>
+              </div>
+              <h5>Description </h5>
+              <TEXTAREA name="DescriptionVisite" rows=4 cols=40 > {{visites.DescriptionVisite}}"</TEXTAREA>
+               <h5> Url du site web </h5>
+               <div class="form-group">
+
+                  <i class="fas fa-at"></i>
+                  <input type="text" class="form-control"  value="{{visites.UrlSiteVisite}}"  name="UrlSiteVisite" required>
+              </div>
+              <h5> Url de la photo </h5>
+              <div class="form-group">
+                  <i class="fas fa-at"></i>
+                  <input type="text" class="form-control" value="{{visites.UrlPhotoVisite}}"  name="UrlPhotoVisite" required>
+              </div>
+
+
+
+              <button type="submit" class="btn btn-success">Modifier la Visite</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  {{else}}
+  <div class="container principal">
+    <h1 class="titlenotadmin"> Cet espace est reservé aux administrateurs<h1>
+      <div class="fin ">
+      </div>
+    </div>
+      
+
+{{/if}}

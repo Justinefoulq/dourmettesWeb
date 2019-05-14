@@ -1,0 +1,33 @@
+<div class="container principal">
+	<h1 class="titrevisites"> A visiter autour du domaine : </h1>
+	<div class="table-wrapper-scroll-y  my-custom-scrollbar">
+		{{#each visites}}
+		<div class="row visites">
+			<div class="col-lg-3 ">
+				<img class ="imagevisites" src="{{UrlPhotoVisite}}" alt= "{{TitreVisite}}-Photos" />
+				
+
+			</div>
+
+
+			<div class="col-lg-9 ">
+				<div class="card text-center">
+					<div class="card-body">
+					    <h5 class="card-title">{{TitreVisite}}</h5>
+					    <p class="card-text"> 
+					    	{{DescriptionVisite}}
+						</p>
+						<a class="visiteslink" href="{{UrlSiteVisite}}" target="_blank"> En savoir plus  </a>
+							
+					  </div>
+				</div>
+			</div>
+			{{else}}
+				<h2 class="titrevisites"> Il n'y a aucune visites référencées </h2>
+
+			{{/each}}
+		</div>
+	</div>
+	
+
+</div>

@@ -19,17 +19,55 @@ router.post('/ajoutAppliquer',isAdmin, async (req, res)=> {
   const newApplique = {NumLoc,NumSaison,NumTarif  };
   
   await pool.query('INSERT INTO applique SET ?', [newApplique])
-  req.flash('success',' Tarifs n°'+NumTarif+ 'appliqué sur la location n°'+NumLoc+ 'pour la saison n°' +NumSaison);
+  req.flash('success',' Tarifs n°'+NumTarif+ ' appliqué sur la location n°'+NumLoc+ ' pour la saison n°' +NumSaison);
   res.redirect('/admin/listeApplique')
 })
 
 /*LISTE RELATION APPLIQUE */
 
 router.get('/listeApplique',isAdmin,async(req,res) => {
-  const applique = await pool.query('SELECT L.LibeleLoc, S.LibSaison,T.PrixSemaine, T.SuplementNbPersSup4 FROM location L, saison S, tarif T, applique A WHERE A.NumLoc=L.NumLoc AND A.NumSaison=S.NumSaison AND T.NumTarif=A.NumTarif')
+  const applique = await pool.query('SELECT L.NumLoc, S.NumSaison, T.NumTarif, L.LibeleLoc, S.LibSaison,T.PrixSemaine, T.SuplementNbPersSup4 FROM location L, saison S, tarif T, applique A WHERE A.NumLoc=L.NumLoc AND A.NumSaison=S.NumSaison AND T.NumTarif=A.NumTarif')
   
   res.render('admin/listeApplique',{applique})
 })
+
+/*MODIFICATION APPLIQUE*/
+
+router.get('/modifApplique/:NumTarif/:NumLoc/:NumSaison',isAdmin,async(req,res) => {
+  const {NumTarif, NumLoc , NumSaison} = req.params;
+  const appliques= await pool.query ('SELECT * FROM applique WHERE NumTarif=? AND NumLoc=? AND NumSaison=?', [NumTarif , NumLoc , NumSaison])
+  const locations = await pool.query('SELECT * FROM location')
+  const saisons = await pool.query('SELECT * FROM saison')
+  const tarifs = await pool.query('SELECT * FROM tarif')
+  
+  res.render('admin/modifApplique',{ appliques : appliques[0],locations,saisons,tarifs});
+
+});
+
+/*Modification de saison via form-------------marche pas ----------*/
+/*router.post('/modifApplique/:NumTarif/:NumLoc/:NumSaison',isAdmin, async(req,res)=>{
+  const {NumTarif1,NumLoc1,NumSaison1}=req.params;
+  const {NumTarif,NumLoc,NumSaison} = req.body;
+  const newApplique = {NumTarif,NumLoc,NumSaison}
+  console.log(newApplique)
+  
+ await pool.query ('DELETE FROM applique WHERE NumTarif= ? AND NumLoc= ? AND NumSaison=?',[NumTarif1,NumLoc1,NumSaison1]);
+ await pool.query('INSERT INTO applique  set ? ', [newApplique]);
+ req.flash('success','Relation Applique modifiée');
+ res.redirect('/admin/listeApplique');
+
+})
+*/
+
+router.get('/supprApplique/:NumTarif/:NumLoc/:NumSaison', isAdmin, async (req,res)=>{
+  const  {NumTarif,NumLoc,NumSaison}=req.params;
+  await pool.query ('DELETE FROM applique WHERE NumTarif= ? AND NumLoc= ? AND NumSaison=?',[NumTarif,NumLoc,NumSaison]);
+  req.flash('message','Reslation Appliquer supprimée');
+  res.redirect('/admin/listeApplique');
+
+})
+
+
 
 
 

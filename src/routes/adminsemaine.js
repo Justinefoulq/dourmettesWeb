@@ -20,7 +20,7 @@ router.post('/ajoutSemaine',isAdmin, async (req, res)=> {
   const newSem = { NumSemaine,DateDebutSemaine,DateFinSemaine};
   
   await pool.query('INSERT INTO semaine SET ?', [newSem])
-  req.flash('success','	Ajout de semaine réussie');
+  req.flash('success','	Ajout de semaine réussi');
   res.redirect('/admin/listeSemaines')
 })
 
@@ -35,9 +35,7 @@ router.get('/modifSemaine/:NumSemaine', isAdmin, async(req,res) => {
 /*Modification de semaine via form*/
 router.post('/modifSemaine/:NumSemaine',isAdmin, async(req,res)=>{
   const {NumSemaine}=req.params;
-  console.log(NumSemaine)
   const {DateDebutSemaine,DateFinSemaine} = req.body;
-  console.log(DateDebutSemaine)
   const newSemaine = { DateDebutSemaine,DateFinSemaine};
   
  

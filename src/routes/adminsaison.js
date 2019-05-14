@@ -23,9 +23,9 @@ router.post('/ajoutSaison',isAdmin, async (req, res)=> {
     SemDebutSaison,
     SemFinSaison
   };
-  console.log(newSaison)
+
   await pool.query('INSERT INTO saison set ?', [newSaison])
-  req.flash('success','Ajout de la saison réussie');
+  req.flash('success','Ajout de la saison réussi');
   res.redirect('/admin/listeSaisons')
 });
 
@@ -42,11 +42,9 @@ router.get('/modifSaison/:NumSaison',isAdmin,async(req,res) => {
 /*Modification de saison via form*/
 router.post('/modifSaison/:NumSaison',isAdmin, async(req,res)=>{
   const {NumSaison}=req.params;
-  console.log(NumSaison)
   const { LibSaison,
     SemDebutSaison,
     SemFinSaison} = req.body;
-  console.log(SemDebutSaison)
   const newSaison = {  LibSaison,
     SemDebutSaison,
     SemFinSaison};

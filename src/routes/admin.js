@@ -24,9 +24,9 @@ router.post('/ajoutClient',isAdmin, async (req, res)=> {
     NumTelClient ,
     MdpClient
   };
-  console.log(newClient)
+
   await pool.query('INSERT INTO client set ?', [newClient])
-  req.flash('success','ajout Client réussie');
+  req.flash('success','ajout Client réussi');
   res.redirect('/admin/listeclient')
 })
 

@@ -14,7 +14,7 @@ router.post('/ajoutTarif',isAdmin, async (req, res)=> {
   const newTarif = {PrixTarif,SuplementNbPersSup4 };
   
   await pool.query('INSERT INTO tarif SET ?', [newTarif])
-  req.flash('success','	Ajout de Tarif réussie');
+  req.flash('success','	Ajout de Tarif réussi');
   res.redirect('/admin/listeTarifs')
 })
 
@@ -29,9 +29,7 @@ router.get('/modifTarif/:NumTarif',isAdmin,async(req,res) => {
 /*Modification de Tarif via form*/
 router.post('/modifTarif/:NumTarif',isAdmin, async(req,res)=>{
   const {NumTarif}=req.params;
-  console.log(NumTarif)
   const {PrixTarif,SuplementNbPersSup4} = req.body;
-  console.log(SuplementNbPersSup4)
   const newTarif = { PrixTarif,SuplementNbPersSup4};
   
  
@@ -46,7 +44,7 @@ router.post('/modifTarif/:NumTarif',isAdmin, async(req,res)=>{
 router.get('/supprTarif/:NumTarif',isAdmin,async (req,res)=>{
   const {NumTarif} = req.params;
   await pool.query ('DELETE FROM tarif WHERE NumTarif=?',isAdmin,[NumTarif]);
-  req.flash('message','Tarif n°' +NumTarif+ ' supprimée');
+  req.flash('message','Tarif n°' +NumTarif+ ' supprimé');
   res.redirect('/admin/listeTarifs');
 
 })
@@ -66,7 +64,7 @@ router.post('/ajoutAppliquer',isAdmin, async (req, res)=> {
   const newApplique = {NumLoc,NumSaison,NumTarif  };
   
   await pool.query('INSERT INTO applique SET ?', [newApplique])
-  req.flash('success',' Tarifs n°'+NumTarif+ 'appliqué sur la location n°'+NumLoc+ 'pour la saison n°' +NumSaison);
+  req.flash('success',' Tarifs n°'+NumTarif+ 'appliqué sur la location n°'+NumLoc+ ' pour la saison n°' +NumSaison);
   res.redirect('/admin/listeTarifs')
 })
 

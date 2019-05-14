@@ -17,6 +17,11 @@ router.get('/Error', (req, res)=> {
   res.render('Error')
 })
 
+router.get('/visites', async (req,res) => {
+	const visites= await pool.query('SELECT * FROM visite')
+	res.render('visites' , {visites})
+});
+
 
 
 

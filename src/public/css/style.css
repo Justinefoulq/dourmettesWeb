@@ -265,7 +265,11 @@ p {
 .reservationlocation ,.disponibilitelocation ,.tariflocation{
 	margin-bottom: 5%;
 }
-
+.formresa form{
+	width:70%;
+	text-align: center;
+	margin:auto;
+}
 .titreloc{
 	text-align: center;
 	color : #17544C;
@@ -274,12 +278,26 @@ p {
 
 }
 
-.titreacces{
-	text-align: center;
-	color : #17544C;
-	padding-top: 2%;
-	margin-bottom: 3%;
 
+.tetetabletarif{
+	background-color: #3F6C4A;
+	width:100%;
+	color:white;
+	position:relative;
+}
+
+.my-custom-scrollbartarif {
+	position: relative;
+	height: 400px;
+	overflow: auto;
+	text-align: center;
+
+	
+	}
+
+.table-wrapper-scroll-ytarif {
+	display: block;
+	padding-bottom:5%;
 }
 
 
@@ -306,14 +324,14 @@ p {
 }
 
 
-.tablesaison{
-	width:90%;
+.tablesaison table{
+	width:100%;
 	margin-right: 0;
 	margin-left:0;
 
 }
 
-
+/*CSS  D'UN CLIENT NON CONNECTER SUR PAGE LOCATION */
 
 .notconnect h5 {
 	margin-top: 5%;
@@ -334,6 +352,13 @@ p {
 
 /*PAGE ACCES CSS /*/
 
+.titreacces{
+	text-align: center;
+	color : #17544C;
+	padding-top: 2%;
+	margin-bottom: 3%;
+
+}
 .acces .card{
 	border:0;
 }
@@ -356,6 +381,34 @@ p {
 	padding-top: 2%;
 	margin-bottom: 3%;
 
+}
+
+/*PAGE ACCES CSS /*/
+
+.titrevisites{
+	text-align: center;
+	color : #17544C;
+	padding-top: 2%;
+	margin-bottom: 3%;
+
+}
+
+.visites img{
+	width:105%;
+	margin:auto;
+	margin-top: 2%;
+	margin-left: 4%;
+	margin-right: 2%;
+
+}
+
+.visites a{
+	color : #17544C;
+}
+
+.visites .card-title {
+	color : #17544C;
+	font-size: 150%;
 }
 
 /*ADMIN CSS */ 

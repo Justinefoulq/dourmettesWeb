@@ -1,0 +1,49 @@
+<div class="container principal">
+    {{#if client.Admin}}
+    
+ <div class="ajoutSemaine">
+    <div class="row ">
+      <div class="ajoutSemaine">
+        <div class="card">
+          <h5 class="card-header"> Ajouter une Visite</h5>
+          <div class="card-body">
+            <form action="/admin/ajoutVisite" method="POST">
+
+               <h5> Titre de la visite </h5>
+              <div class="form-group">
+                  <input type="text" class="form-control"  placeholder="Titre Visite"  name="TitreVisite" required>
+              </div>
+              <h5>Description </h5>
+
+              <TEXTAREA name="DescriptionVisite" rows=4 cols=40 > Description de la visite </TEXTAREA>
+              
+               <h5> Url du site web </h5>
+          
+               <div class="form-group">
+                  <input type="text" class="form-control"  placeholder="Url site de la Visite"  name="UrlSiteVisite" required>
+              </div>
+              <h5> Url de la photo </h5>
+              
+              <div class="form-group">
+                  <input type="text" class="form-control"  placeholder="Url de la photo de la Visite"  name="UrlPhotoVisite" required>
+              </div>
+
+              <button type="submit" class="btn btn-success">Ajouter la visite</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  {{else}}
+  <div class="container principal">
+    <h1 class="titlenotadmin"> Cet espace est reservé aux administrateurs<h1>
+      <div class="fin ">
+      </div>
+    </div>
+      
+
+{{/if}}
