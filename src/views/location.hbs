@@ -112,9 +112,19 @@
 
                        </div>
                       </div>
+                      {{#if client}}
                         <div class="boutonresa">
                          <button type="Submit" class="btn btn-success "> Demander la reservation </button>
                        </div>
+                     {{else}}
+                     <div class="row notconnect">
+                      <h5> Pour faire une demande de réservation , connectez vous ! </h5>
+                        <div class="boutonresa">
+                         <a href="/connexion" class="btn btn-success "> Connexion </a>
+                       </div>
+                     </div>
+                       {{/if}}
+
                     </form>
                     
                   </div>

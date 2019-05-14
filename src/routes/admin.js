@@ -33,7 +33,7 @@ router.post('/ajoutClient',isAdmin, async (req, res)=> {
 /* ROUTE LISTE CLIENT + MODIF + SUPPR */ 
 
 router.get('/listeclient',isAdmin, async (req,res) => {
-  const clients = await pool.query('SELECT * FROM client');
+  const clients = await pool.query('SELECT * FROM client ORDER BY');
   res.render('admin/listeclient' ,{ clients } );
 });
 

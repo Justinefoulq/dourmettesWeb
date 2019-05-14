@@ -15,34 +15,27 @@
                   <i class="far fa-file-alt"></i>
                   <input type="text" class="form-control"  value="{{saisons.LibSaison}}"  name="LibSaison" required>
               </div>
-              <div class="form-group">
+              <div class="pickerresa"> 
+                <h5> Semaine de debut de Saison </h5>
+               <select class=form-control name="SemDebutSaison" required>
 
-                  <i class="far fa-calendar-alt"></i>
-                  <input type="number" class="form-control"  value="{{saisons.SemDebutSaison}}"  name="SemDebutSaison" required>
-              </div>
-              <div class="form-group">
-
-                  <i class="far fa-calendar-alt"></i>
-                  <input type="number" class="form-control"  value="{{saisons.SemFinSaison}}"  name="SemFinSaison" required>
-              </div>
-
-              {{!--  <select class=form-control name="SemDebutSaison">
-
-                            {{#each semaines}}
-                              <option  value="{{NumSemaine}}"> {{NumSemaine}} - {{DateDebutSemaine}} - {{DateFinSemaine}}</option> 
-                            {{/each}}
-                               
+                {{#each semaines}}
+                  <option  value="{{NumSemaine}}"> {{NumSemaine}} : Du {{DateDebutSemaine}} au  {{DateFinSemaine}}</option>
+                {{/each}}
+                   
                </select>
-               <label for="formGroupExampleInput">Semaine de Fin de Saison</label>
-               <select class=form-control name="SemFinSaison">
+              </div>
+              <div class="pickerresa"> 
+                <h5> Semaine de fin de Saison </h5>
+               <select class=form-control name="SemFinSaison" required>
 
-                            {{#each semaines}}
-                              <option  value="{{NumSemaine}}"> {{NumSemaine}} - {{DateDebutSemaine}} - {{DateFinSemaine}}</option> 
-                            {{/each}}
-                               
-               </select> --}}
-
-
+                {{#each semaines}}
+                  <option  value="{{NumSemaine}}"> {{NumSemaine}} : Du {{DateDebutSemaine}} au  {{DateFinSemaine}}</option>
+                {{/each}}
+                   
+               </select>
+              </div>
+             </br>
               <button type="submit" class="btn btn-success">Modifier la Saison </button>
             </form>
           </div>

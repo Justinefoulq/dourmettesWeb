@@ -1,7 +1,7 @@
 <div class="container  principal">
 	{{#if client.Admin}}
 		<div class="admin">
-			<h1 > Liste des clients </h1>
+			<h1 > Liste des relations 'Appliquer'</h1>
 		</div>
 		<div class="table-wrapper-scroll-y  my-custom-scrollbar">
 				
@@ -9,17 +9,10 @@
 		  <table class="table table-bordered mb-0">
 		    <thead class="tetetable">
 		      <tr>
-		      	<th scope="col">NumClient</th>
-			      <th scope="col">Nom</th>
-			      <th scope="col">Prenom</th>
-			      <th scope="col">Mail</th>
-			      <th scope="col">Num Rue</th>
-			      <th scope="col">Rue</th>
-			      <th scope="col">Code Postal</th>
-			      <th scope="col">Ville</th>
-			      <th scope="col">Pays</th>
-			      <th scope="col">Telephone</th>
-			      <th scope="col">Modif</th>
+		      	<th scope="col">Location</th>
+		      	<th scope="col">Saison</th>
+		      	<th scope="col">Tarif</th>
+		      	<th scope="col">Suplement</th>
 
 		      </tr>
 		    </thead>
@@ -27,10 +20,10 @@
 
 		    	{{#each clients}}
 			  		<tr>
-			  			<th scope="row"> {{ NumClient }} </th>
-			  			<td scope ="row">{{ NomClient}} </td>
-			  			<td scope ="row">{{ PrenomClient}} </td>
-			  			<td scope ="row">{{MailClient }} </td>
+			  			<th scope="row"> {{  }} </th>
+			  			<td scope ="row">{{ }} </td>
+			  			<td scope ="row">{{ }} </td>
+			  			<td scope ="row">{{	 }} </td>
 			  			<td scope ="row">{{ NumRueClient }} </td>
 			  			<td scope ="row">{{RueClient }} </td>
 			  			<td scope ="row">{{ CodePostalClient}} </td>

@@ -315,6 +315,18 @@ p {
 
 
 
+.notconnect h5 {
+	margin-top: 5%;
+	text-align: center;
+	color: #14A544;
+}
+
+.notconnect .boutonresa {
+	margin-top: 1%;
+	text-align: center;
+	margin-left: 38%;
+}
+
 
 
 
@@ -480,8 +492,6 @@ p {
 	margin-left:28%;
 	background-image: url(https://img.linuxfr.org/img/68747470733a2f2f6d656469612e67697068792e636f6d2f6d656469612f737256675870717a35516454472f67697068792e676966/giphy.gif);
 }
-
-
 
 
 

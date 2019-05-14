@@ -43,7 +43,7 @@ router.post('/modifTarif/:NumTarif',isAdmin, async(req,res)=>{
 
 /*SUPPRESSION TARIF */
 
-router.get('/supprTarif/:NumTarif',async (req,res)=>{
+router.get('/supprTarif/:NumTarif',isAdmin,async (req,res)=>{
   const {NumTarif} = req.params;
   await pool.query ('DELETE FROM tarif WHERE NumTarif=?',isAdmin,[NumTarif]);
   req.flash('message','Tarif n°' +NumTarif+ ' supprimée');
@@ -52,6 +52,23 @@ router.get('/supprTarif/:NumTarif',async (req,res)=>{
 })
 
 
+/* GESTION DES APPLIQUE - TARFIFS SUR UNE SAISON SUR UNE LOCATION */ 
+
+router.get('/appliqueTarifs',isAdmin,async(req,res) => {
+  const locations = await pool.query('SELECT * FROM location')
+  const saisons = await pool.query('SELECT * FROM saison')
+  const tarifs = await pool.query('SELECT * FROM tarif')
+  res.render('admin/appliqueTarifs',{locations,saisons,tarifs})
+})
+
+router.post('/ajoutAppliquer',isAdmin, async (req, res)=> {
+  const {NumLoc,NumSaison,NumTarif } = req.body;
+  const newApplique = {NumLoc,NumSaison,NumTarif  };
+  
+  await pool.query('INSERT INTO applique SET ?', [newApplique])
+  req.flash('success',' Tarifs n°'+NumTarif+ 'appliqué sur la location n°'+NumLoc+ 'pour la saison n°' +NumSaison);
+  res.redirect('/admin/listeTarifs')
+})
 
 
 module.exports = router

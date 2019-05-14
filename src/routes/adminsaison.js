@@ -11,8 +11,9 @@ router.get('/listeSaisons',isAdmin, async (req,res) => {
   res.render('admin/listeSaisons' ,{ saison } );
 });
 
-router.get('/ajoutSaison', (req, res)=> {
-  res.render('admin/ajoutSaison')
+router.get('/ajoutSaison', async(req, res)=> {
+   const semaines=await pool.query('SELECT * FROM semaine')
+  res.render('admin/ajoutSaison',{semaines})
 })
 
 router.post('/ajoutSaison',isAdmin, async (req, res)=> {
@@ -32,8 +33,9 @@ router.post('/ajoutSaison',isAdmin, async (req, res)=> {
 router.get('/modifSaison/:NumSaison',isAdmin,async(req,res) => {
   const {NumSaison}=req.params;
   const saisons = await pool.query('SELECT * FROM saison WHERE NumSaison = ?', [NumSaison]);
+   const semaines=await pool.query('SELECT * FROM semaine')
   
-  res.render('admin/modifSaison',{saisons : saisons[0]});
+  res.render('admin/modifSaison',{saisons : saisons[0],semaines});
 
 });
 
