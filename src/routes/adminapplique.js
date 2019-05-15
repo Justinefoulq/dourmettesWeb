@@ -19,6 +19,7 @@ router.post('/ajoutAppliquer',isAdmin, async (req, res)=> {
   const newApplique = {NumLoc,NumSaison,NumTarif  };
   
   await pool.query('INSERT INTO applique SET ?', [newApplique])
+<<<<<<< HEAD
   req.flash('success',' Tarifs n°'+NumTarif+ ' appliqué sur la location n°'+NumLoc+ ' pour la saison n°' +NumSaison);
   res.redirect('/admin/listeApplique')
 })
@@ -70,5 +71,11 @@ router.get('/supprApplique/:NumTarif/:NumLoc/:NumSaison', isAdmin, async (req,re
 
 
 
+=======
+  req.flash('success',' Tarifs n°'+NumTarif+ 'appliqué sur la location n°'+NumLoc+ 'pour la saison n°' +NumSaison);
+  res.redirect('/admin/listeTarifs')
+})
+
+>>>>>>> parent of 8eec49b...  probleme annulerreservation
 
 module.exports = router
