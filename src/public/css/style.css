@@ -156,7 +156,7 @@ p {
 
 .form-group input{
 	height :42px ;
-	border :0;
+	border :2;
 	font-size: 110%;
 	letter-spacing: 1px;
 	padding-left :13%;
@@ -398,7 +398,8 @@ p {
 	margin:auto;
 	margin-top: 2%;
 	margin-left: 4%;
-	margin-right: 2%;
+	margin-right: 6%;
+	border-radius: 20px;
 
 }
 
@@ -576,3 +577,4 @@ p {
 p,li,a {
 	color :black;
 }
+

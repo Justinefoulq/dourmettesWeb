@@ -22,7 +22,7 @@ router.get('/listeReservation',isAdmin, async (req,res) => {
 router.get('/valideResa/:NumResa',isAdmin, async (req,res)=>{
 	const {NumResa}=req.params;
 	await pool.query('UPDATE reservation SET ResaValid=1, ResaAttente=0 WHERE NumResa=?',NumResa);
-	req.flash('success', 'Réservation n° '+NumResa+ ' validé');
+	req.flash('success', 'Réservation n° '+NumResa+ ' validée');
 	res.redirect('/admin/listeReservation');
 })
 
@@ -30,7 +30,7 @@ router.get('/valideResa/:NumResa',isAdmin, async (req,res)=>{
 router.get('/refusResa/:NumResa',isAdmin, async (req,res)=>{
 	const {NumResa}=req.params;
 	await pool.query('UPDATE reservation SET ResaRefus=1, ResaAttente=0 WHERE NumResa=?',NumResa);
-	req.flash('message', 'Réservation n° '+NumResa+ ' refusé');
+	req.flash('message', 'Réservation n° '+NumResa+ ' refusée');
 	res.redirect('/admin/listeReservation');
 })
 

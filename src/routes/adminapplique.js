@@ -19,7 +19,7 @@ router.post('/ajoutAppliquer',isAdmin, async (req, res)=> {
   const newApplique = {NumLoc,NumSaison,NumTarif  };
   
   await pool.query('INSERT INTO applique SET ?', [newApplique])
-  req.flash('success',' Tarifs n°'+NumTarif+ ' appliqué sur la location n°'+NumLoc+ ' pour la saison n°' +NumSaison);
+  req.flash('success',' Tarif n°'+NumTarif+ ' appliqué sur la location n°'+NumLoc+ ' pour la saison n°' +NumSaison);
   res.redirect('/admin/listeApplique')
 })
 
@@ -44,7 +44,7 @@ router.get('/modifApplique/:NumTarif/:NumLoc/:NumSaison',isAdmin,async(req,res) 
 
 });
 
-/*Modification de saison via form-------------marche pas ----------*/
+/*Modification de applique via form-------------marche pas ----------*/
 /*router.post('/modifApplique/:NumTarif/:NumLoc/:NumSaison',isAdmin, async(req,res)=>{
   const {NumTarif1,NumLoc1,NumSaison1}=req.params;
   const {NumTarif,NumLoc,NumSaison} = req.body;

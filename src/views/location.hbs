@@ -93,7 +93,7 @@
                         <h5> Nombre de personnes</h5>
                         <div class="form-group " id='locationform'>
                             <i class="far fa-user"></i>
-                            <input type="number" class="form-control"  placeholder="Nb< {{location.NbPlaceLoc}} "  name="NbPersResa" required>
+                            <input type="number" class="form-control"  placeholder="Nb< {{location.NbPlaceLoc}} "  name="NbPersResa"  min="1" max="{{location.NbPlaceLoc}}"required>
                         </div>
                  
 
@@ -142,7 +142,7 @@
                           <th scope="col">Semaine Debut </th>
                           <th scope="col">Semaine Fin </th>
                           <th scope="col">Prix Semaine </th>
-                          <th scope="col">Prix par Personne si > 4 </th>
+                          <th scope="col">Prix par Personne et par jour si > 4 </th>
 
 
                         </tr>
@@ -155,7 +155,7 @@
                             <td>{{SemDebutSaison}}</td>
                             <td>{{SemFinSaison}}</td>
                             <td> {{PrixSemaine}} € </td>
-                            <td> {{SuplementNbPersSup4}} €/pers</td>
+                            <td> {{SuplementNbPersSup4}} €/pers/j</td>
                             
                           </tr>
                         {{else}}

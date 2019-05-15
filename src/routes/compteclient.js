@@ -48,15 +48,47 @@ router.get('/mesReservations/:NumClient' , isGoodClient, isLoggedIn, async (req,
     res.render('mesReservations' ,{ reservationValide,reservationAttente,reservationRefus} );
 })
 
+
+
+
+
+
+
 /*
-router.get('/annulerResa/:NumResa',isGoodClient, isLoggedIn, async (req,res)=>{
+router.get('/annulerResa/:NumResa', isLoggedIn, async (req,res)=>{
   const {NumResa}=req.params;
-  await pool.query('UPDATE reservation SET ResaRefus=1, ResaAttente=0 WHERE NumResa=?',NumResa);
+  console.log('coucouuuuuuuuu')
+  console.log(NumResa)
+
+  await pool.query('UPDATE reservation SET ResaRefus=1, ResaAttente=0 WHERE NumResa=?',[NumResa]);
+  req.flash('message', 'Vous avez annulé la réservation n° '+NumResa+ ' annulé');
+  res.redirect('mesReservations');
+})
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*router.get('/annulerResa/:NumResa',isGoodClient, isLoggedIn, async (req,res)=>{
+  const {NumResa}=req.params;
+  console.log('prout')
+  await pool.query('UPDATE reservation SET ResaRefus=1, ResaAttente=0 WHERE NumResa=?',[NumResa]);
   req.flash('message', 'Réservation n° '+NumResa+ ' annulée');
   res.redirect('/connexion');
 })
-*/
 
+*/
 
 
 module.exports = router

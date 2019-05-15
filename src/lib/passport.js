@@ -13,7 +13,6 @@ passport.use('local.signin',new localStrategy({
 	passwordField: 'MdpClient',
 	passReqToCallback : true
 }, async (req, MailClient, MdpClient, done) =>{
-	console.log(req.body);
 	const rows = await pool.query('SELECT * FROM client WHERE MailClient = ?', [MailClient]);
 	if (rows.length > 0){
 		const client = rows[0];

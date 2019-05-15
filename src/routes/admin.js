@@ -26,14 +26,14 @@ router.post('/ajoutClient',isAdmin, async (req, res)=> {
   };
 
   await pool.query('INSERT INTO client set ?', [newClient])
-  req.flash('success','ajout Client réussi');
+  req.flash('success','Ajout  du Client réussi');
   res.redirect('/admin/listeclient')
 })
 
 /* ROUTE LISTE CLIENT + MODIF + SUPPR */ 
 
 router.get('/listeclient',isAdmin, async (req,res) => {
-  const clients = await pool.query('SELECT * FROM client ORDER BY');
+  const clients = await pool.query('SELECT * FROM client ');
   res.render('admin/listeclient' ,{ clients } );
 });
 
