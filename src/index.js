@@ -62,8 +62,6 @@ app.use(async(req, res, next) =>{
 	app.locals.success = req.flash('success');
   app.locals.message = req.flash('message');
   app.locals.client = req.user;
-/*  global.LibTypesLoc= await pool.query('SELECT LibeleType FROM typeLoc')
-  console.log(LibTypesLoc)*/
 
 
   next()
