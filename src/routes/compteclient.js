@@ -48,14 +48,14 @@ router.get('/mesReservations/:NumClient' , isGoodClient, isLoggedIn, async (req,
     res.render('mesReservations' ,{ reservationValide,reservationAttente,reservationRefus} );
 })
 
-
+/*
 router.get('/annulerResa/:NumResa',isGoodClient, isLoggedIn, async (req,res)=>{
   const {NumResa}=req.params;
   await pool.query('UPDATE reservation SET ResaRefus=1, ResaAttente=0 WHERE NumResa=?',NumResa);
   req.flash('message', 'Réservation n° '+NumResa+ ' annulée');
   res.redirect('/connexion');
 })
-
+*/
 
 
 
