@@ -41,7 +41,15 @@ module.exports = {
 	  		return next();
 	  	}
 	  	return res.redirect('/Error');	
-	  }
+	  },
+
+	  isGoodClientAnnulerResa(req,res,next){
+      const { NumResa, NumClient }= req.params;
+      if(req.user.NumClient==NumClient){
+        return next();
+      }
+      return res.redirect('/Error');
+    }
 
 }
 
