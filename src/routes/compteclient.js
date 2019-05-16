@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-
+const helpers = require('../lib/helpers');
 const passport =require('passport')
 const {isLoggedIn,isNotLoggedIn,isGoodClient,isGoodClientAnnulerResa} = require('../lib/auth');
 const pool = require('../database');
@@ -25,6 +25,7 @@ router.post('/mesInfos/:NumClient',isLoggedIn,isGoodClient, async(req,res)=>{
     NumTelClient ,
     MdpClient
   };
+  newClient.MdpClient = await helpers.encryptPassword(MdpClient);
  
  await pool.query('UPDATE client set ? WHERE NumClient = ?', [newClient,NumClient]);
  req.flash('success','Vos infos sont modifiées');
