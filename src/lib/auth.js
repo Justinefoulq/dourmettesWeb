@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const pool = require('../database');
 
+
 module.exports = {
 	/*est connecte */ 
 	isLoggedIn(req,res,next) {
@@ -49,6 +50,23 @@ module.exports = {
         return next();
       }
       return res.redirect('/Error');
+    },
+    isGoodClientAjoutAvis(req,res,next){
+      const { NumLoc, NumClient }= req.params;
+      if(req.user.NumClient==NumClient){
+        return next();
+      }
+      return res.redirect('/Error');
+    },
+
+    async hasReservationValid (req,res,next){
+    	const {NumLoc,NumClient} =req.params;
+    	const hasReserved = await pool.query('SELECT R.NumResa FROM reservation R, location L, client C WHERE L.NumLoc=? AND C.NumClient=? AND R.NumClient=C.NumClient AND R.NumLoc=L.NumLoc AND R.ResaValid=1 AND R.CommentaireResa=0' ,[NumLoc,NumClient])
+   
+    	if(hasReserved[0] != undefined) {
+    		return next();
+    	}
+    	return res.redirect('/Error');
     }
 
 }

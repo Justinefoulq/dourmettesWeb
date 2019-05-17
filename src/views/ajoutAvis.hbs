@@ -1,0 +1,49 @@
+<div class="container principal">
+    {{#if client}}
+    
+ <div class="ajoutSemaine">
+    <div class="row ">
+      <div class="ajoutSemaine">
+        <div class="card">
+          <h5 class="card-header"> Ajouter un Avis</h5>
+          <div class="card-body">
+            <form action="/ajoutAvis/{{NumLoc}}/{{NumClient}}" method="POST">
+
+               <h5> Titre de l'avis </h5>
+              <div class="form-group">
+                  <i class="fas fa-text-height"></i>
+                  <input type="text" class="form-control"  placeholder="Titre de l'avis"  name="TitreAvis" required>
+              </div>
+
+              <h5> Note de l'avis sur 5</h5>
+              <div class="form-group">
+                  <i class="far fa-star"></i>
+                  <input type="number" class="form-control" min="0" max="5"placeholder="Note Avis /5"  name="NoteAvis" required>
+              </div>
+
+              <h5>Commentaire Avis </h5>
+
+              <TEXTAREA name="CommentaireAvis" rows=4 cols=40 > Commentaire de l'avis </TEXTAREA>
+              
+              <div class ="boutonavis ">
+
+                 <button type="submit" class="btn btn-success ">Ajouter l'avis</button>
+               </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  {{else}}
+  <div class="container principal">
+    <h1 class="titlenotadmin"> Cet espace est reservé aux client<h1>
+      <div class="fin ">
+      </div>
+    </div>
+      
+
+{{/if}}

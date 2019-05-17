@@ -93,9 +93,16 @@
                                   <h3> Publié le {{DateAvis}} </h3>
                              </div>
                            </li>
+                           {{else}}
+                           <h3> Il n'y a pas encore d'avis</h3>
                            {{/each}}
                          </ul>
                         </div>
+                      {{#if client}}
+                        <div class="boutonavis">
+                         <a href="/ajoutAvis/{{location.NumLoc}}/{{client.NumClient}}" class="btn btn-success "> Laisser un avis </a>
+                       </div>
+                       {{/if}}
                       </div>         
                     </div>
 

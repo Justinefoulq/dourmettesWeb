@@ -357,6 +357,12 @@ p {
 	padding-left: 5%;
 }
 
+.product-comments .card-body h3{
+	color : #17544C;
+	font-size: 150%;
+	text-align : center;
+}
+
 .product-comments .card h2{
 	color : #545454;
 	font-size: 150%
@@ -372,8 +378,6 @@ p {
 .product-comments .card p{
 	color : #404040;
 	font-size: 100%;
-	
-
 }
 
 .product-comments .card .corpavis{
@@ -392,6 +396,11 @@ p {
 	overflow:hidden; 
 	overflow-y:scroll;
 
+}
+
+.boutonavis{
+	text-align: center;
+	margin-top: 2%;
 }
 
 
