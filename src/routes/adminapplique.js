@@ -62,7 +62,7 @@ router.get('/modifApplique/:NumTarif/:NumLoc/:NumSaison',isAdmin,async(req,res) 
 router.get('/supprApplique/:NumTarif/:NumLoc/:NumSaison', isAdmin, async (req,res)=>{
   const  {NumTarif,NumLoc,NumSaison}=req.params;
   await pool.query ('DELETE FROM applique WHERE NumTarif= ? AND NumLoc= ? AND NumSaison=?',[NumTarif,NumLoc,NumSaison]);
-  req.flash('message','Reslation Appliquer supprimée');
+  req.flash('message','Relation Appliquer supprimée');
   res.redirect('/admin/listeApplique');
 
 })

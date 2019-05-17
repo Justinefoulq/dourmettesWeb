@@ -20,34 +20,18 @@
 		    </thead>
 		    <tbody>
 
-		    	{{#each clients}}
+		    	{{#each applique}}
 			  		<tr>
-<<<<<<< HEAD
 			  			<th scope="row"> {{ LibeleLoc }} </th>
 			  			<td scope ="row">{{ LibSaison }} </td>
 			  			<td scope ="row">{{ PrixSemaine }} €/sem </td>
 			  			<td scope ="row">{{	SuplementNbPersSup4 }} /pers </td>
 			  			<td><a href="/admin/supprApplique/{{NumTarif}}/{{NumLoc}}/{{NumSaison}}"class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>
-
-			  			
-=======
-			  			<th scope="row"> {{  }} </th>
-			  			<td scope ="row">{{ }} </td>
-			  			<td scope ="row">{{ }} </td>
-			  			<td scope ="row">{{	 }} </td>
-			  			<td scope ="row">{{ NumRueClient }} </td>
-			  			<td scope ="row">{{RueClient }} </td>
-			  			<td scope ="row">{{ CodePostalClient}} </td>
-			  			<td scope ="row">{{ VilleClient}} </td>
-			  			<td scope ="row">{{ PaysClient}} </td>
-			  			<td scope ="row">{{ NumTelClient}} </td>
-			  			<td><a href="/admin/modifClient/{{NumClient}}" class="btn btn-info">M</a></td>
->>>>>>> parent of 8eec49b...  probleme annulerreservation
 			  			
 				</tbody>
 				</tr>
 				{{else}}
-					<h2> Il n'y a pas de client  </h2>
+					<h2> Il n'y a pas de relations appliquer  </h2>
 
 				{{/each}}
 

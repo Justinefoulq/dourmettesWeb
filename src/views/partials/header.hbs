@@ -10,7 +10,7 @@
 		    <ul class="navbar-nav mr-auto">
 
 		      <li class="nav-item">
-		        <a class="nav-link" href="/admin/listeReservation"> Reservations<span class="sr-only"></span></a>
+		        <a class="nav-link" href="/admin/listeReservation"> Réservations<span class="sr-only"></span></a>
 		      </li>
 
 		      <li class="nav-item">
@@ -33,9 +33,7 @@
 		          	<div class="dropdown-divider"></div>
 		          <a class="dropdown-item" href="/admin/listeApplique">Gestion 'Appliquer'(tarifs) </a>
 		          	<div class="dropdown-divider"></div>
-
-		          <div class="dropdown-divider"></div>
-		          <a class="dropdown-item" href="/admin/listeVisites">Gestion des Vistes </a>
+		          <a class="dropdown-item" href="/admin/listeVisites">Gestion des Visites </a>
 
 						    
 		        </div>
@@ -59,7 +57,7 @@
 		    <ul class="navbar-nav ml-auto">
 		    	{{#if client}}
 		    		<li class="nav-item">
-				        <a class="nav-link" href="/deconnexion"> Deconnexion  <span class="sr-only"></span></a>
+				        <a class="nav-link" href="/deconnexion"> Déconnexion  <span class="sr-only"></span></a>
 				     </li>
 		    	{{else}}
 
@@ -131,10 +129,10 @@
 		        <a class="nav-link" href="/visites">Les visites <span class="sr-only"></span></a>
 		      </li>
 
-		      <li class="nav-item">
+		     {{!--  <li class="nav-item">
 		        <a class="nav-link" href="#">Galerie Photos <span class="sr-only"></span></a>
 		      </li>
-
+ --}}
 
 
 			</ul>
@@ -151,7 +149,7 @@
 				           <div class="dropdown-divider"></div>
 				          <a class="dropdown-item" href="/mesReservations/{{client.NumClient}}">Mes réservations</a>   
 				          <div class="dropdown-divider"></div>
-				          <a class="dropdown-item" href="/deconnexion">Deconnexion</a>    
+				          <a class="dropdown-item" href="/deconnexion">Déconnexion</a>    
 				        </div>
 				      </li>	
 		    	{{else}}
