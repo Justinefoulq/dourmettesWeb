@@ -4,7 +4,22 @@ const router = express.Router()
 const passport =require('passport')
 const {isLoggedIn,isNotLoggedIn,isGoodClientResa} = require('../lib/auth');
 const pool = require('../database');
+const mailer = require("nodemailer");
 
+var smtpTransport = mailer.createTransport("SMTP",{
+	service: "Gmail",
+	auth: {
+		user: "domainedesdourmettes@gmail.com",
+		pass: "AdminDourmettes"
+	}
+});
+
+var mail = {
+	from: "domainedesdourmettes@gmail.com",
+	to: "justinefoulquier@hotmail.fr",
+	subject: "Demande de reservation ",
+	html: "Bonjour Nathalie, vous avez reçus une nouvelle demande de reservation, allez consulter cette demande sur : https://dourmettes.herokuapp.com/ dans votre espace administrateur"
+}
 
 
 
@@ -20,6 +35,15 @@ router.post('/creareservation/:NumClient/:NumLoc',isGoodClientResa, isLoggedIn, 
 
 	await pool.query('INSERT INTO effectue (NumResa,NumLoc,NumSemaine) VALUES (?,?,?)',[ NbResa[0].IdResa ,NumLoc,NumSemaine]);
 	req.flash('success', 'Demande de Reservation réussie');
+	smtpTransport.sendMail(mail, function(error, response){
+		if(error){
+			console.log("Erreur lors de l'envoie du mail!");
+			console.log(error);
+		}else{
+			console.log("Mail envoyé avec succès!")
+		}
+		smtpTransport.close();
+	});
 	res.redirect('/location/'+NumLoc);
 
 })
