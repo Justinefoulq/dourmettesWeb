@@ -37,7 +37,8 @@ body{
 	font-size: 110%
 }
 
-..nav-right{
+
+.nav-right{
 	float: right;
 }
 
@@ -281,10 +282,12 @@ p {
 
 .tetetabletarif{
 	background-color: #3F6C4A;
-	width:100%;
+	width:150%;
 	color:white;
 	position:relative;
 }
+
+
 
 .my-custom-scrollbartarif {
 	position: relative;
@@ -316,6 +319,7 @@ p {
 	width:100%;
 	margin:auto;
 	height: 150px;
+	list-style-type: circle;
 }
 .listscroll ul{
 	overflow:hidden; 
@@ -485,6 +489,30 @@ p {
 	font-size: 150%;
 }
 
+/* PAGE INFORMATION */
+
+.informations{
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-top: 0;
+	text-align: center;
+}
+
+.informations ul{
+	margin : auto;
+	display: inline-block;
+	list-style-type: circle;
+
+}
+
+.informations a{
+	color: #3F6C4A;
+}
+.informations a:hover{
+	color: #4CA562;
+}
+
+
 /*ADMIN CSS */ 
 
 
@@ -621,7 +649,7 @@ p {
 }
 
 
-
+/* FOOTER CSS */
 .logofooter {
 	text-align: center;
 	margin:auto;
@@ -647,7 +675,7 @@ p {
 
 
 
-p,li,a {
+p,li,a,ul {
 	color :black;
-}
+	font-family: 'Oxygen', monospace;
 

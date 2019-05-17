@@ -13,13 +13,21 @@ router.get('/acces', async (req,res) => {
 	res.render('acces')
 });
 
+/* ROUTE ERREURS */
 router.get('/Error', (req, res)=> {
   res.render('Error')
 })
 
+/*ROUTE VISITES */ 
 router.get('/visites', async (req,res) => {
 	const visites= await pool.query('SELECT * FROM visite')
 	res.render('visites' , {visites})
+});
+
+/* ROUTE INFORMATIONS */ 
+
+router.get('/informations', async (req,res) => {
+	res.render('informations')
 });
 
 
