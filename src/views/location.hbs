@@ -67,13 +67,39 @@
                     </div>
 
                    
-                    <div class="product-comments">
+                    <div class=" card product-comments">
+                      <div class="card-header">Les Avis de cette location
                       
-                      <h2 class="mb-5">Les Avis</h2>
-                      <ol class="list-unstyled ">
-                        <li> AVIS CLIENT</li>
-                      </ol>
+                      </div>
+                      <div class="card-body">
+                        <div class="listscrollavis">
+                          <ul>
+                            {{#each avis}}
+                            <li>
+                              <div class="card avis">
+                               
+                               <div class="card-body">
+                                  <div class="row ">
+                                      <h2> <i class="far  fa-user-circle"></i> {{PrenomClient}} {{NomClient}}</h2>
+                                  </div>
+                                  <div class="corpavis">
+                                    <div class="row">
+                                       <h1> {{TitreAvis}} - {{NoteAvis}}/5 </h1> 
+                                    </div>
+                                     <div class="row">
+                                        <p>{{CommentaireAvis}}</p>
+                                    </div>   
+                                  </div>
+                                  <h3> Publié le {{DateAvis}} </h3>
+                             </div>
+                           </li>
+                           {{/each}}
+                         </ul>
+                        </div>
+                      </div>         
                     </div>
+
+                  
                   </div>
                 </div>
 

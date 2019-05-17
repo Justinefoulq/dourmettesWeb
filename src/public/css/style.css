@@ -330,6 +330,70 @@ p {
 	margin-left:0;
 
 }
+/*AVIS CSS*/ 
+
+
+.product-comments ul{
+	list-style-type: none; 
+	margin:auto;
+	padding-left: 0;
+}
+
+.product-comments .card{
+	width:90%;
+	margin-left: 3%;
+	/*border:0;*/
+}
+.product-comments .card h1{
+	font-weight: bold;
+	color : #17544C;
+	font-size: 150%
+}
+
+.product-comments .card-body {
+	padding-right: 2%;
+	padding-top:2%;
+	padding-bottom: 2%;
+	padding-left: 5%;
+}
+
+.product-comments .card h2{
+	color : #545454;
+	font-size: 150%
+}
+
+.product-comments .card h3{
+	color : #545454;
+	font-size: 90%;
+	float:right;
+	font-style: italic;
+	margin-bottom: 0;
+}
+.product-comments .card p{
+	color : #404040;
+	font-size: 100%;
+	
+
+}
+
+.product-comments .card .corpavis{
+	margin-left: 10%
+
+}
+
+
+.listscrollavis {
+	height:50%;
+	width:100%;
+	margin:auto;
+	height: 400px;
+}
+.listscrollavis {
+	overflow:hidden; 
+	overflow-y:scroll;
+
+}
+
 
 /*CSS  D'UN CLIENT NON CONNECTER SUR PAGE LOCATION */
 
