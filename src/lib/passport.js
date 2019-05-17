@@ -35,6 +35,10 @@ passport.use('local.signup',new localStrategy({
 	passwordField: 'MdpClient',
 	passReqToCallback : true 
 }, async (req , MailClient , MdpClient , done) =>{
+	const rows = await pool.query('SELECT * FROM client WHERE MailClient = ?', [MailClient]);
+	if (rows.length!=0) {
+		done(null,false, req.flash('message','Cet email est déja utilisé'));
+	}
 	const { NomClient , PrenomClient , NumRueClient , RueClient , CodePostalClient , VilleClient , PaysClient , NumTelClient } = req.body;
   	const newClient = {
 	    MailClient,

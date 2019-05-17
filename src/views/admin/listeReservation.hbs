@@ -22,6 +22,7 @@
 					<th scope="col"> Nombre Personnes  </th>
 					<th scope="col"> Location </th>
 					<th scope="col"> Semaine Demandé </th>
+					<th scope="col"> Date de la demande  </th>
 					<th scope="col"> Valider </th>
 					<th scope="col"> Refuser </th>
 
@@ -37,6 +38,7 @@
 						<td>{{NbPersResa}}</td>
 						<td>{{LibeleLoc}}</td>
 						<td>{{NumSemaine}}</td>
+						<td>{{DateResa}}</td>
 						<td><a href="/admin/valideResa/{{NumResa}}" class="btn btn-success"> <i class="far fa-check-circle"></i> Valider</a></td>
 						<td><a href="/admin/refusResa/{{NumResa}}"class="btn btn-danger"> <i class="far fa-times-circle"></i> Refuser</a></td>
 
@@ -64,6 +66,7 @@
 					<th scope="col"> Nombre Personnes  </th>
 					<th scope="col"> Location </th>
 					<th scope="col"> Semaine Demandé </th>
+					<th scope="col"> Date de la demande  </th>
 					{{!-- <th scope="col"> Suppr </th> --}}
 
 			      </tr>
@@ -75,7 +78,9 @@
 						<td>{{NumClient}}</td>
 						<td>{{NbPersResa}}</td>
 						<td>{{LibeleLoc}}</td>
-						<td>{{NumSemaine}}</td>{{!-- 
+						<td>{{NumSemaine}}</td>
+						<td>{{DateResa}}</td>
+						{{!-- 
 						<td><a href="/admin/supprResa/{{NumResa}}" class="btn btn-danger">Supprimer</a></td> --}}
 
 						
@@ -101,6 +106,7 @@
 					<th scope="col"> Nombre Personnes  </th>
 					<th scope="col"> Location </th>
 					<th scope="col"> Semaine Demandé </th>
+					<th scope="col"> Date de la demande  </th>
 					{{!-- <th scope="col"> Suppr </th> --}}
 
 			      </tr>
@@ -112,7 +118,9 @@
 						<td>{{NumClient}}</td>
 						<td>{{NbPersResa}}</td>
 						<td>{{LibeleLoc}}</td>
-						<td>{{NumSemaine}}</td>{{!-- 
+						<td>{{NumSemaine}}</td>
+						<td>{{DateResa}}</td>
+						{{!-- 
 						<td><a href="/admin/supprResa/{{NumResa}}" class="btn btn-danger">Supprimer</a></td> --}}
 
 						

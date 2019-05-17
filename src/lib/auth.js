@@ -66,7 +66,8 @@ module.exports = {
     	if(hasReserved[0] != undefined) {
     		return next();
     	}
-    	return res.redirect('/Error');
+    	req.flash('message','Vous ne pouvez pas ajouter un avis si vous n\'avez pas de reservation valide pour cette location OU que vous avez déja donné votre avis sur cette location');
+    	return res.redirect('/location/' +NumLoc);
     }
 
 }
