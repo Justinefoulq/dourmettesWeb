@@ -8,7 +8,6 @@ const MySQLStore = require('express-mysql-session')
 const passport = require('passport')
 const mysql = require('mysql')
 const cookieSession =require('cookie-session')
-const cacheControl = require ('express-cache-controller')
 const xssFilter = require('x-xss-protection')
 const helmet = require('helmet')
 const {database} = require('./keys');
@@ -38,6 +37,8 @@ app.set('view engine', '.hbs')
 
 app.use(flash());
 app.use(helmet());
+app.use(xssFilter({ setOnOldIE: true }));
+app.use(helmet.noCache())
 
 
 app.use(cookieSession({
@@ -52,9 +53,6 @@ app.use(cookieSession({
 
 
 
-
-
-app.use(xssFilter({ setOnOldIE: true }));
 
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
