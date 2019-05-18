@@ -42,12 +42,15 @@ app.use(helmet.noCache())
 
 
 app.use(cookieSession({
-  maxAge: 1*60*60*1000,
+  maxAge:1*60*60*1000,
 	secret:'projetwebdourmettes',
 	resave:false,
 	saveUninitialized:false,
 	store: new MySQLStore(database),
-  httponly:true
+  cookie: {
+        secure: true,
+        httpOnly: true
+    },
 
 }));
 
