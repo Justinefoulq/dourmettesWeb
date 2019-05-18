@@ -8,7 +8,8 @@ const MySQLStore = require('express-mysql-session')
 const passport = require('passport')
 const mysql = require('mysql')
 const cookieSession =require('cookie-session')
-
+const cacheControl = require ('express-cache-controller')
+const xssFilter = require('x-xss-protection')
 const {database} = require('./keys');
 
 const pool = mysql.createPool(database)
@@ -42,11 +43,22 @@ app.use(cookieSession({
 	secret:'projetwebdourmettes',
 	resave:false,
 	saveUninitialized:false,
-	store: new MySQLStore(database)
+	store: new MySQLStore(database),
+  httponly:true
 
 }));
 
 
+app.use(function applyXFrame(req, res, next) {
+    res.set('X-Frame-Options', 'DENY');
+    next(); 
+});
+
+app.use(cacheControl({
+  noCache: true
+}));
+
+app.use(xssFilter({ setOnOldIE: true }));
 
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));

@@ -7,9 +7,10 @@ const pool = require('../database')
 
 /* ROUTE LISTE RESERVATION */ 
 router.get('/listeReservation',isAdmin, async (req,res) => {
-  const reservationValide = await pool.query('SELECT R.NumClient,R.NumResa,R.DateResa, R.NbPersResa, E.NumSemaine, L.LibeleLoc FROM reservation R, effectue E , location L WHERE  E.NumResa=R.NumResa AND L.NumLoc=E.NumLoc AND ResaValid=1 ORDER BY R.NumResa DESC' );
-  const reservationAttente = await pool.query('SELECT R.NumClient,R.NumResa,R.DateResa, R.NbPersResa, E.NumSemaine, L.LibeleLoc FROM reservation R, effectue E , location L WHERE  E.NumResa=R.NumResa AND L.NumLoc=E.NumLoc AND ResaAttente=1 ORDER BY R.NumResa DESC');
-  const reservationRefuse = await pool.query('SELECT R.NumClient,R.NumResa, R.DateResa,R.NbPersResa, E.NumSemaine, L.LibeleLoc FROM reservation R, effectue E , location L WHERE  E.NumResa=R.NumResa AND L.NumLoc=E.NumLoc AND ResaRefus=1 ORDER BY R.NumResa DESC ');
+  const reservationValide = await pool.query('SELECT R.NumClient,C.PrenomClient,C.NomClient,R.NumResa,R.DateResa, R.NbPersResa, E.NumSemaine, L.LibeleLoc FROM client C, reservation R, effectue E , location L WHERE C.NumClient=R.NumClient AND  E.NumResa=R.NumResa AND L.NumLoc=E.NumLoc AND ResaValid=1 ORDER BY R.NumResa DESC' );
+  console.log(reservationValide)
+  const reservationAttente = await pool.query('SELECT R.NumClient,C.PrenomClient,C.NomClient,R.NumResa,R.DateResa, R.NbPersResa, E.NumSemaine, L.LibeleLoc FROM client C,reservation R, effectue E , location L WHERE C.NumClient=R.NumClient AND E.NumResa=R.NumResa AND L.NumLoc=E.NumLoc AND ResaAttente=1 ORDER BY R.NumResa DESC');
+  const reservationRefuse = await pool.query('SELECT R.NumClient,C.PrenomClient,C.NomClient,R.NumResa, R.DateResa,R.NbPersResa, E.NumSemaine, L.LibeleLoc FROM client C,reservation R, effectue E , location L WHERE C.NumClient=R.NumClient AND E.NumResa=R.NumResa AND L.NumLoc=E.NumLoc AND ResaRefus=1 ORDER BY R.NumResa DESC ');
   console.log(reservationValide)
   
 

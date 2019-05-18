@@ -13,7 +13,7 @@
           </div>
 
           <div class="col-12 form-input">
-            <form action ="/inscription" method="POST" onSubmit = "return checkPassword(this)">
+            <form action ="/inscription" method="POST"  onSubmit = "return checkPassword(this)">
 
               <div class="form-group">
                 <i class="fas fa-at"></i>
@@ -64,12 +64,12 @@
 
               <div class="form-group">
                 <i class="fas fa-lock"></i>
-                <input type="password" class="form-control " placeholder="Mot de Passe"  name="MdpClient" required>
+                <input type="password" class="form-control " placeholder="Mot de Passe"  name="MdpClient"  autocomplete="off" required>
               </div>
 
               <div class="form-group">
                 <i class="fas fa-lock"></i>
-                <input type="password" class="form-control" placeholder=" Confirmation Mot de Passe" name="MdpClient2" required>
+                <input type="password" class="form-control" placeholder=" Confirmation Mot de Passe"  autocomplete="off"  name="MdpClient2" required>
               </div>
 
               <button type="Submit" class="btn btn-success"> Inscription </button>
