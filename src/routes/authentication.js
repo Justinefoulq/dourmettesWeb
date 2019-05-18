@@ -6,6 +6,7 @@ const helpers = require('../lib/helpers');
 const {isLoggedIn,isNotLoggedIn} = require('../lib/auth');
 
 
+/* INSCRIPTION CLIENT */ 
 
 router.get('/inscription',isNotLoggedIn,(req,res)=>{
 	res.render('auth/inscription');
@@ -18,6 +19,7 @@ router.post('/inscription',isNotLoggedIn, passport.authenticate('local.signup', 
 }));
 
 
+/* CONNECTION CLIENT */ 
 
 router.get('/connexion', isNotLoggedIn ,(req,res)=> {
 	res.render('auth/connexion')
@@ -33,6 +35,7 @@ router.post('/connexion', isNotLoggedIn, (req,res,next) => {
 }),
 
 
+/* DECONNECTION CLIENT */ 
 
 
 router.get('/deconnexion' ,isLoggedIn, (req,res) =>{
@@ -41,9 +44,6 @@ router.get('/deconnexion' ,isLoggedIn, (req,res) =>{
 });
 
 
-router.get('/mesInfos' , isLoggedIn, (req,res) =>{
-	res.render('mesInfos');
-})
 
 
 

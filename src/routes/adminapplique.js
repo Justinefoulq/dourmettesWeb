@@ -26,14 +26,30 @@ router.post('/ajoutAppliquer',isAdmin, async (req, res)=> {
 /*LISTE RELATION APPLIQUE */
 
 router.get('/listeApplique',isAdmin,async(req,res) => {
-  const applique = await pool.query('SELECT L.NumLoc, S.NumSaison, T.NumTarif, L.LibeleLoc, S.LibSaison,T.PrixSemaine, T.SuplementNbPersSup4 FROM location L, saison S, tarif T, applique A WHERE A.NumLoc=L.NumLoc AND A.NumSaison=S.NumSaison AND T.NumTarif=A.NumTarif')
+  const applique = await pool.query('SELECT L.NumLoc, S.NumSaison, T.NumTarif, L.LibeleLoc, S.LibSaison,T.PrixSemaine, T.SuplementNbPersSup4 FROM location L, saison S, tarif T, applique A WHERE A.NumLoc=L.NumLoc AND A.NumSaison=S.NumSaison AND T.NumTarif=A.NumTarif ORDER BY L.LibeleLoc')
   
   res.render('admin/listeApplique',{applique})
 })
 
-/*MODIFICATION APPLIQUE*/
 
-router.get('/modifApplique/:NumTarif/:NumLoc/:NumSaison',isAdmin,async(req,res) => {
+
+/*SUPPRESSION APPLIQUE*/
+
+
+router.get('/supprApplique/:NumTarif/:NumLoc/:NumSaison', isAdmin, async (req,res)=>{
+  const  {NumTarif,NumLoc,NumSaison}=req.params;
+  await pool.query ('DELETE FROM applique WHERE NumTarif= ? AND NumLoc= ? AND NumSaison=?',[NumTarif,NumLoc,NumSaison]);
+  req.flash('message','Relation Appliquer supprimée');
+  res.redirect('/admin/listeApplique');
+
+})
+
+
+
+
+/*MODIFICATION APPLIQUE - en suspend car pas utile*/
+
+/*router.get('/modifApplique/:NumTarif/:NumLoc/:NumSaison',isAdmin,async(req,res) => {
   const {NumTarif, NumLoc , NumSaison} = req.params;
   const appliques= await pool.query ('SELECT * FROM applique WHERE NumTarif=? AND NumLoc=? AND NumSaison=?', [NumTarif , NumLoc , NumSaison])
   const locations = await pool.query('SELECT * FROM location')
@@ -43,7 +59,7 @@ router.get('/modifApplique/:NumTarif/:NumLoc/:NumSaison',isAdmin,async(req,res) 
   res.render('admin/modifApplique',{ appliques : appliques[0],locations,saisons,tarifs});
 
 });
-
+*/
 /*Modification de applique via form-------------marche pas ----------*/
 /*router.post('/modifApplique/:NumTarif/:NumLoc/:NumSaison',isAdmin, async(req,res)=>{
   const {NumTarif1,NumLoc1,NumSaison1}=req.params;
@@ -58,17 +74,6 @@ router.get('/modifApplique/:NumTarif/:NumLoc/:NumSaison',isAdmin,async(req,res) 
 
 })
 */
-
-router.get('/supprApplique/:NumTarif/:NumLoc/:NumSaison', isAdmin, async (req,res)=>{
-  const  {NumTarif,NumLoc,NumSaison}=req.params;
-  await pool.query ('DELETE FROM applique WHERE NumTarif= ? AND NumLoc= ? AND NumSaison=?',[NumTarif,NumLoc,NumSaison]);
-  req.flash('message','Relation Appliquer supprimée');
-  res.redirect('/admin/listeApplique');
-
-})
-
-
-
 
 
 module.exports = router

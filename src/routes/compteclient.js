@@ -6,6 +6,9 @@ const {isLoggedIn,isNotLoggedIn,isGoodClient,isGoodClientAnnulerResa} = require(
 const pool = require('../database');
 
 
+/* MODIFIER INFOS CLIENT */ 
+
+
 router.get('/mesInfos' , isLoggedIn, (req,res) =>{
 	res.render('mesInfos');
 })
@@ -52,7 +55,7 @@ router.get('/mesReservations/:NumClient' , isGoodClient, isLoggedIn, async (req,
 
 
 
-
+/*ANNULATION RESERVATION CLIENT */ 
 
 
 

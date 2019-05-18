@@ -52,7 +52,7 @@ router.post('/modifvisite/:NumVisite',isAdmin, async(req,res)=>{
 router.get('/supprVisite/:NumVisite', isAdmin, async (req,res)=>{
   const {NumVisite} = req.params;
   await pool.query ('DELETE FROM visite WHERE NumVisite=?',[NumVisite]);
-  req.flash('message','Semaine n°' +NumVisite+ ' supprimée');
+  req.flash('message','Visite n°' +NumVisite+ ' supprimée');
   res.redirect('/admin/listeVisites');
 
 })

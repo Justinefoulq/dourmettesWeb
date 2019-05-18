@@ -27,6 +27,7 @@ router.get('/valideResa/:NumResa',isAdmin, async (req,res)=>{
 	res.redirect('/admin/listeReservation');
 })
 
+/* REFUSER UNE REERVATION */ 
 
 router.get('/refusResa/:NumResa',isAdmin, async (req,res)=>{
 	const {NumResa}=req.params;
@@ -34,6 +35,9 @@ router.get('/refusResa/:NumResa',isAdmin, async (req,res)=>{
 	req.flash('message', 'Réservation n° '+NumResa+ ' refusée');
 	res.redirect('/admin/listeReservation');
 })
+
+/* AJOUTER UNE REERVATION */ 
+
 
 router.get('/ajoutReservation', async(req, res)=> {
   const locations= await pool.query('SELECT NumLoc,LibeleLoc FROM location')

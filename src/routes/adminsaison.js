@@ -69,6 +69,6 @@ router.get('/supprSaison/:NumSaison', isAdmin, async (req,res)=>{
 
 
 
-/*ENVOI INFO AU FORM AJOUTSAISON*/ 
+
 
 module.exports = router
