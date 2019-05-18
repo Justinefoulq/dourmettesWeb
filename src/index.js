@@ -51,7 +51,7 @@ app.use(cookieSession({
 }));
 
 
-app.use(function applyXFrame(req, res, next) {
+/*app.use(function applyXFrame(req, res, next) {
     res.set('X-Frame-Options', 'DENY');
     next(); 
 });
@@ -70,7 +70,7 @@ app.use(function (req, res, next) {
 });
 
 
-app.use(xssFilter({ setOnOldIE: true }));
+app.use(xssFilter({ setOnOldIE: true }));*/
 
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
