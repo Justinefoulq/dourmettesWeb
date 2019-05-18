@@ -51,26 +51,10 @@ app.use(cookieSession({
 }));
 
 
-/*app.use(function applyXFrame(req, res, next) {
-    res.set('X-Frame-Options', 'DENY');
-    next(); 
-});
-
-app.use(cacheControl({
-  noCache: true
-}));
 
 
 
-app.use(function (req, res, next) {
-    res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
-    res.header('Expires', '-1');
-    res.header('Pragma', 'no-cache');
-    next()
-});
-
-
-app.use(xssFilter({ setOnOldIE: true }));*/
+app.use(xssFilter({ setOnOldIE: true }));
 
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
