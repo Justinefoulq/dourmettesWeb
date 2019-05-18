@@ -10,6 +10,8 @@ const mysql = require('mysql')
 const cookieSession =require('cookie-session')
 const cacheControl = require ('express-cache-controller')
 const xssFilter = require('x-xss-protection')
+const xFrameOptions = require('x-frame-options')
+const helmet = require('helmet')
 const {database} = require('./keys');
 
 const pool = mysql.createPool(database)
@@ -36,6 +38,8 @@ app.set('view engine', '.hbs')
 //middleware
 
 app.use(flash());
+app.use(helmet())
+app.disable('x-powered-by');
 
 
 app.use(cookieSession({
@@ -49,14 +53,23 @@ app.use(cookieSession({
 }));
 
 
-app.use(function applyXFrame(req, res, next) {
-    res.set('X-Frame-Options', 'DENY');
-    next(); 
-});
+ app.get('/', function (req, res) {
+    res.get('X-Frame-Options') // === 'Deny'
+  })
 
 app.use(cacheControl({
   noCache: true
 }));
+
+
+
+app.use(function (req, res, next) {
+    res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+    res.header('Expires', '-1');
+    res.header('Pragma', 'no-cache');
+    next()
+});
+
 
 app.use(xssFilter({ setOnOldIE: true }));
 
