@@ -15,7 +15,7 @@ router.post('/ajoutTarif',isAdmin, async (req, res)=> {
   const newTarif = {PrixSemaine,SuplementNbPersSup4 };
   
   await pool.query('INSERT INTO tarif SET ?', [newTarif])
-  req.flash('success','	Ajout de Tarif réussi');
+  req.flash('success',' Ajout de Tarif réussi');
   res.redirect('/admin/listeTarifs')
 })
 

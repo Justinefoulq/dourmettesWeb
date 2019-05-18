@@ -57,7 +57,6 @@ router.get('/supprApplique/:NumTarif/:NumLoc/:NumSaison', isAdmin, async (req,re
   const tarifs = await pool.query('SELECT * FROM tarif')
   
   res.render('admin/modifApplique',{ appliques : appliques[0],locations,saisons,tarifs});
-
 });
 */
 /*Modification de applique via form-------------marche pas ----------*/
@@ -71,7 +70,6 @@ router.get('/supprApplique/:NumTarif/:NumLoc/:NumSaison', isAdmin, async (req,re
  await pool.query('INSERT INTO applique  set ? ', [newApplique]);
  req.flash('success','Relation Applique modifiée');
  res.redirect('/admin/listeApplique');
-
 })
 */
 

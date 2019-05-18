@@ -22,7 +22,7 @@ router.post('/ajoutVisite',isAdmin, async (req, res)=> {
   const newVisite =  {TitreVisite , DescriptionVisite,UrlSiteVisite,UrlPhotoVisite};
   
   await pool.query('INSERT INTO visite SET ?', [newVisite])
-  req.flash('success','	Ajout de la visite réussi');
+  req.flash('success',' Ajout de la visite réussi');
   res.redirect('/admin/listeVisites')
 })
 
