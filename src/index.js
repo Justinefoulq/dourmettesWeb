@@ -10,6 +10,7 @@ const mysql = require('mysql')
 const cookieSession =require('cookie-session')
 const cacheControl = require ('express-cache-controller')
 const xssFilter = require('x-xss-protection')
+const helmet = require('helmet')
 const {database} = require('./keys');
 
 const pool = mysql.createPool(database)
@@ -36,6 +37,7 @@ app.set('view engine', '.hbs')
 //middleware
 
 app.use(flash());
+app.use(helmet());
 
 
 app.use(cookieSession({
