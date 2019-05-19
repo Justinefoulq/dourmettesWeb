@@ -54,10 +54,4 @@ router.post('/creareservation/:NumClient/:NumLoc',isGoodClientResa, isLoggedIn, 
 
 
 
-
-
-
-
-
-
 module.exports = router

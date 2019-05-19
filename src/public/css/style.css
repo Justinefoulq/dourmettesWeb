@@ -515,6 +515,16 @@ p {
 
 /*ADMIN CSS */ 
 
+.helloAdmin h1,h2,p{
+	text-align: center;
+	color : #17544C;
+	padding-top: 2%;
+	margin-bottom: 2%;
+}
+
+
+
+
 
 .tetetable{
 	background-color: #3F6C4A;

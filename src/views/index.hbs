@@ -1,3 +1,21 @@
+{{#if client.Admin}}
+
+	<div class="container principal">
+			<div class="row ">
+				<div class="col-lg-12 helloAdmin">
+				<h1 > Bonjour {{client.PrenomClient}} ! </h1>
+				<h2>Bienvenue dans votre espace administrateur.</h2>
+				<p> Vous trouverez dans la barre de navigation ci-dessus tous les outils de gestion dont vous avez besoin ! </p>
+			</div>
+			
+			</div>
+
+	</div>
+
+{{else}}
+
+
+
 <div class="container principal">
 			<div class="row ">
 				<div class="col-lg-1 ">
@@ -91,3 +109,4 @@
 		</div>
 
 		</div>
+{{/if}}

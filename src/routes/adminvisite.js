@@ -30,9 +30,7 @@ router.post('/ajoutVisite',isAdmin, async (req, res)=> {
  /* MODIFICIATIONDE VISITES*/ 
 router.get('/modifVisite/:NumVisite', isAdmin, async(req,res) => {
   const {NumVisite}=req.params;
-  console.log(NumVisite)
   const visites = await pool.query('SELECT * FROM visite WHERE NumVisite = ?', [NumVisite]);
-   console.log(visites)
   res.render('admin/modifVisite',{visites : visites[0]});
 
 })
