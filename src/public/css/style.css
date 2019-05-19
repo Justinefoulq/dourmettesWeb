@@ -369,7 +369,8 @@ p {
 
 .product-comments .card h2{
 	color : #545454;
-	font-size: 150%
+	font-size: 150%;
+	margin-left:2%;
 }
 
 .product-comments .card h3{
@@ -385,7 +386,12 @@ p {
 }
 
 .product-comments .card .corpavis{
-	margin-left: 10%
+	margin-left: 10%;
+
+}
+.product-comments .card .corpavis p {
+	margin-right:4%;
+	text-align: left;
 
 }
 
