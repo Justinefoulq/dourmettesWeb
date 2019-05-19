@@ -1,7 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const {isAdmin} = require('../lib/auth');
-
+const methodOverride = require('method-override');
+router.use(methodOverride('_method'));
 const pool = require('../database')
 
 /*LISTE VISITE */
@@ -49,7 +50,7 @@ router.post('/modifvisite/:NumVisite',isAdmin, async(req,res)=>{
 })
  /*SUPRESSION VISITE */ 
 
-router.get('/supprVisite/:NumVisite', isAdmin, async (req,res)=>{
+router.delete('/supprVisite/:NumVisite', isAdmin, async (req,res)=>{
   const {NumVisite} = req.params;
   await pool.query ('DELETE FROM visite WHERE NumVisite=?',[NumVisite]);
   req.flash('message','Visite n°' +NumVisite+ ' supprimée');

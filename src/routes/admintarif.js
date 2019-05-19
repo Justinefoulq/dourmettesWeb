@@ -1,6 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const {isAdmin} = require('../lib/auth');
+const methodOverride = require('method-override');
+router.use(methodOverride('_method'));
+
 
 const pool = require('../database')
 
@@ -45,8 +48,10 @@ router.post('/modifTarif/:NumTarif', isAdmin , async(req,res)=>{
 
 /*SUPPRESSION TARIF */
 
-router.get('/supprTarif/:NumTarif',isAdmin,async (req,res)=>{
+router.delete('/supprTarif/:NumTarif',isAdmin,async (req,res)=>{
   const {NumTarif} = req.params;
+  await pool.query ('DELETE FROM applique WHERE NumTarif=?',[NumTarif]);
+  console.log('JAI DELETE FROM APPLIQUE')
   await pool.query ('DELETE FROM tarif WHERE NumTarif=?',[NumTarif]);
   req.flash('message','Tarif n°' +NumTarif+ ' supprimé');
   res.redirect('/admin/listeTarifs');

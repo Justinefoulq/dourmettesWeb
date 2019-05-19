@@ -1,7 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const {isAdmin} = require('../lib/auth');
-
+const methodOverride = require('method-override');
+router.use(methodOverride('_method'));
 const pool = require('../database')
 
 
@@ -36,7 +37,7 @@ router.get('/listeApplique',isAdmin,async(req,res) => {
 /*SUPPRESSION APPLIQUE*/
 
 
-router.get('/supprApplique/:NumTarif/:NumLoc/:NumSaison', isAdmin, async (req,res)=>{
+router.delete('/supprApplique/:NumTarif/:NumLoc/:NumSaison', isAdmin, async (req,res)=>{
   const  {NumTarif,NumLoc,NumSaison}=req.params;
   await pool.query ('DELETE FROM applique WHERE NumTarif= ? AND NumLoc= ? AND NumSaison=?',[NumTarif,NumLoc,NumSaison]);
   req.flash('message','Relation Appliquer supprimée');

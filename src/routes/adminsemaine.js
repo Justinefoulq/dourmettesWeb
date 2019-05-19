@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const {isAdmin} = require('../lib/auth');
+const methodOverride = require('method-override');
+router.use(methodOverride('_method'));
 
 const pool = require('../database')
 
@@ -47,7 +49,7 @@ router.post('/modifSemaine/:NumSemaine',isAdmin, async(req,res)=>{
 
 /*SUPPRESSION SEMAINE */
 
-router.get('/supprSemaine/:NumSemaine', isAdmin, async (req,res)=>{
+router.delete('/supprSemaine/:NumSemaine', isAdmin, async (req,res)=>{
   const {NumSemaine} = req.params;
   await pool.query ('DELETE FROM semaine WHERE NumSemaine=?',[NumSemaine]);
   req.flash('message','Semaine n°' +NumSemaine+ ' supprimée');

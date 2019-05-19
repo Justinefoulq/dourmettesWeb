@@ -28,7 +28,10 @@
 					<td>{{UrlSiteVisite}}</td>
 					<td>{{UrlPhotoVisite}}</td>
 					<td><a href="/admin/modifVisite/{{NumVisite}}" class="btn btn-info"><i class="fas fa-eraser"></i></a></td>
-					<td><a href="/admin/supprVisite/{{NumVisite}}"class="btn btn-danger"> <i class="fas fa-trash-alt"></i></a></td>
+					<form method="post" action="/admin/supprVisite/{{NumVisite}}?_method=DELETE">
+						<input type="hidden" name="_method" value="DELETE">
+							<td><button type="submit"class="btn btn-danger"> <i class="fas fa-trash-alt"></i></button></td>					
+					</form>
 
 					
 				</tr>

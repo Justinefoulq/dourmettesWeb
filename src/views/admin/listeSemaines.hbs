@@ -24,7 +24,10 @@
 					<td>{{DateDebutSemaine}}</td>
 					<td>{{DateFinSemaine}}</td>
 					<td><a href="/admin/modifSemaine/{{NumSemaine}}" class="btn btn-info"><i class="fas fa-eraser"></a></td>
-					<td><a  href="/admin/supprSemaine/{{NumSemaine}} "class="btn btn-danger" >  <i class="fas fa-trash-alt"></i></a></td>
+					<form method="post" action="/admin/supprSemaine/{{NumSemaine}}?_method=DELETE">
+						<input type="hidden" name="_method" value="DELETE">
+							<td><button type="submit"class="btn btn-danger"> <i class="fas fa-trash-alt"></i></button></td>					
+					</form>
 
 					
 				</tr>
