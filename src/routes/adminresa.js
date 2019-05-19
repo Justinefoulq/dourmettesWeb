@@ -8,10 +8,8 @@ const pool = require('../database')
 /* ROUTE LISTE RESERVATION */ 
 router.get('/listeReservation',isAdmin, async (req,res) => {
   const reservationValide = await pool.query('SELECT R.NumClient,C.PrenomClient,C.NomClient,R.NumResa,R.DateResa, R.NbPersResa, E.NumSemaine, L.LibeleLoc FROM client C, reservation R, effectue E , location L WHERE C.NumClient=R.NumClient AND  E.NumResa=R.NumResa AND L.NumLoc=E.NumLoc AND ResaValid=1 ORDER BY R.NumResa DESC' );
-  console.log(reservationValide)
   const reservationAttente = await pool.query('SELECT R.NumClient,C.PrenomClient,C.NomClient,R.NumResa,R.DateResa, R.NbPersResa, E.NumSemaine, L.LibeleLoc FROM client C,reservation R, effectue E , location L WHERE C.NumClient=R.NumClient AND E.NumResa=R.NumResa AND L.NumLoc=E.NumLoc AND ResaAttente=1 ORDER BY R.NumResa DESC');
   const reservationRefuse = await pool.query('SELECT R.NumClient,C.PrenomClient,C.NomClient,R.NumResa, R.DateResa,R.NbPersResa, E.NumSemaine, L.LibeleLoc FROM client C,reservation R, effectue E , location L WHERE C.NumClient=R.NumClient AND E.NumResa=R.NumResa AND L.NumLoc=E.NumLoc AND ResaRefus=1 ORDER BY R.NumResa DESC ');
-  console.log(reservationValide)
   
 
   res.render('admin/listeReservation' ,{ reservationValide,reservationAttente,reservationRefuse } );
@@ -48,8 +46,6 @@ router.get('/ajoutReservation', async(req, res)=> {
 
 router.post('/ajoutReservation',isAdmin, async (req, res)=> {
   const { NumLoc,NumSemaine,NumClient,NbPersResa,ResaValid,ResaAttente } = req.body;
-  console.log(NumLoc)
-  console.log(NumSemaine)
   await pool.query('INSERT INTO reservation  (NumLoc, NumClient,NbPersResa, ResaValid, ResaAttente, ResaRefus) VALUES (?, ?, ?, ?, ?, ?)', [NumLoc, NumClient,NbPersResa, ResaValid, ResaAttente,0])
  
   const NbResa = await pool.query('SELECT count(NumResa) AS IdResa FROM reservation')
