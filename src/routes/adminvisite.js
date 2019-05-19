@@ -15,7 +15,7 @@ router.get('/listeVisites',isAdmin, async (req,res) => {
  /*AJOUT VISITE */ 
 router.get('/ajoutVisite',isAdmin, async (req,res) => {
   
-  res.render('admin/AjoutVisite'  );
+  res.render('admin/ajoutVisite'  );
 });
 
 router.post('/ajoutVisite',isAdmin, async (req, res)=> {
