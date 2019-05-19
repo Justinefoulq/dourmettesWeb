@@ -47,15 +47,15 @@ router.post('/modifSemaine/:NumSemaine',isAdmin, async(req,res)=>{
 
 })
 
-/*SUPPRESSION SEMAINE */
+/*SUPPRESSION SEMAINE -- enlever car on ne peut pas supprimer une semaine si on a une resa dessus , pas gentil pour les gens */
 
-router.delete('/supprSemaine/:NumSemaine', isAdmin, async (req,res)=>{
+/*router.delete('/supprSemaine/:NumSemaine', isAdmin, async (req,res)=>{
   const {NumSemaine} = req.params;
   await pool.query ('DELETE FROM semaine WHERE NumSemaine=?',[NumSemaine]);
   req.flash('message','Semaine n°' +NumSemaine+ ' supprimée');
   res.redirect('/admin/listeSemaines');
 
-})
+})*/
 
 
 

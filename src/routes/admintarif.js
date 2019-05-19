@@ -50,7 +50,7 @@ router.post('/modifTarif/:NumTarif', isAdmin , async(req,res)=>{
 
 router.delete('/supprTarif/:NumTarif',isAdmin,async (req,res)=>{
   const {NumTarif} = req.params;
-/*  await pool.query ('DELETE FROM applique WHERE NumTarif=?',[NumTarif]);*/
+  await pool.query ('DELETE FROM applique WHERE NumTarif=?',[NumTarif]);  
   await pool.query ('DELETE FROM tarif WHERE NumTarif=?',[NumTarif]);
   req.flash('message','Tarif n°' +NumTarif+ ' supprimé');
   res.redirect('/admin/listeTarifs');

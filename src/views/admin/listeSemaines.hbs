@@ -13,7 +13,6 @@
 				<th scope="col">Date Debut </th>
 				<th scope="col">Date Fin </th>
 				<th scope="col"> Modif </th>
-				<th scope="col"> Suppr </th>
 
 		      </tr>
 		    </thead>
@@ -24,10 +23,10 @@
 					<td>{{DateDebutSemaine}}</td>
 					<td>{{DateFinSemaine}}</td>
 					<td><a href="/admin/modifSemaine/{{NumSemaine}}" class="btn btn-info"><i class="fas fa-eraser"></a></td>
-					<form method="post" action="/admin/supprSemaine/{{NumSemaine}}?_method=DELETE">
+					{{!-- <form method="post" action="/admin/supprSemaine/{{NumSemaine}}?_method=DELETE">
 						<input type="hidden" name="_method" value="DELETE">
 							<td><button type="submit"class="btn btn-danger"> <i class="fas fa-trash-alt"></i></button></td>					
-					</form>
+					</form> --}}
 
 					
 				</tr>

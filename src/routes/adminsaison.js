@@ -64,6 +64,7 @@ router.post('/modifSaison/:NumSaison',isAdmin, async(req,res)=>{
 
 router.delete('/supprSaison/:NumSaison', isAdmin, async (req,res)=>{
   const {NumSaison} = req.params;
+  await pool.query ('DELETE FROM applique WHERE NumSaison=?',[NumSaison]);
   await pool.query ('DELETE FROM saison WHERE NumSaison=?',[NumSaison]);
   req.flash('message','Saison n°' +NumSaison+ ' supprimée');
   res.redirect('/admin/listeSaisons');
