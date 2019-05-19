@@ -38,7 +38,7 @@ app.set('view engine', '.hbs')
 app.use(flash());
 app.use(helmet());
 app.use(xssFilter({ setOnOldIE: true }));
-app.use(helmet.noCache())
+/*app.use(helmet.noCache())*/
 
 
 app.use(cookieSession({
