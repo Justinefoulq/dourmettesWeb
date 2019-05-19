@@ -62,7 +62,7 @@ router.get('/mesReservations/:NumClient' , isGoodClient, isLoggedIn, async (req,
 router.get('/annulerResa/:NumResa/:NumClient', isGoodClientAnnulerResa ,isLoggedIn, async (req,res)=>{
   const {NumResa,NumClient}=req.params;
   await pool.query('UPDATE reservation SET ResaRefus=1, ResaAttente=0 WHERE NumResa=?',[NumResa]);
-  req.flash('message', 'Vous avez annulé la réservation n° '+NumResa+ ' annulé');
+  req.flash('message', 'Vous avez annulé la réservation n° '+NumResa);
   res.redirect('/mesReservations/'+NumClient);
 })
 

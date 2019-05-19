@@ -521,6 +521,24 @@ p {
 
 /*ADMIN CSS */ 
 
+.modalsuppr .modal-content{
+	background-color: white;
+	text-align: center;
+}
+ .modalsuppr  .modal-title{
+ 	text-align: center;
+ 	color:red;
+ 	margin-bottom:0;
+ }
+
+ .modalsuppr  .modal-body{
+ 	padding: 0;
+ }
+
+
+
+
+
 .helloAdmin h1,h2,p{
 	text-align: center;
 	color : #17544C;

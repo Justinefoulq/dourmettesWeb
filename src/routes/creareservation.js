@@ -34,10 +34,10 @@ router.post('/creareservation/:NumClient/:NumLoc',isGoodClientResa, isLoggedIn, 
 	const NbResa = await pool.query('SELECT count(NumResa) AS IdResa FROM reservation')
 
 	await pool.query('INSERT INTO effectue (NumResa,NumLoc,NumSemaine) VALUES (?,?,?)',[ NbResa[0].IdResa ,NumLoc,NumSemaine]);
-	req.flash('success', 'Demande de Reservation réussie');
+	req.flash('success', 'Demande de réservation réussie');
 	smtpTransport.sendMail(mail, function(error, response){
 		if(error){
-			console.log("Erreur lors de l'envoie du mail!");
+			console.log("Erreur lors de l'envoi du mail!");
 			console.log(error);
 		}else{
 			console.log("Mail envoyé avec succès!")
