@@ -1,9 +1,9 @@
 module.exports = {
   database: {
-    host: '51.254.214.203',
-    user: 'justinef',
-    password: 'admindesdourmettes',
-    database: 'dourmettesWeb'
+    host: process.env.HOST,
+    user: process.env.USER,
+    password: process.env.PASSWORD,
+    database: process.env.DATABASE
   },
   
 }
