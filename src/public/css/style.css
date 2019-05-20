@@ -450,8 +450,12 @@ p {
 	text-align: left;
 }
 
-.maps{
-	padding-left: 10%;
+.maps {
+	padding-left: 5%;
+	padding-right: 5%;
+}
+.maps iframe{
+	width:100%;
 }
 
 .fin{
@@ -466,7 +470,7 @@ p {
 
 }
 
-/*PAGE ACCES CSS /*/
+/*PAGE VISITE CSS /*/
 
 .titrevisites{
 	text-align: center;
@@ -477,11 +481,12 @@ p {
 }
 
 .visites img{
-	width:105%;
+	width:100%;
 	margin:auto;
 	margin-top: 2%;
 	margin-left: 4%;
 	margin-right: 6%;
+	margin-bottom: 2%;
 	border-radius: 20px;
 
 }
@@ -684,6 +689,8 @@ p {
 
 
 /* FOOTER CSS */
+
+
 .logofooter {
 	text-align: center;
 	margin:auto;
@@ -699,12 +706,11 @@ p {
 .col-md-3 .mx-auto .logofooter{
 	margin-top: 0;
 }
-.containerfooter{
-	padding-left: 0;
-	padding-right: 0;
-	margin-left:0;
-	margin-right:0;
 
+.footerlink li {
+	text-align: right;
+	padding-right: 5%;
+	margin-right: 5%;
 }
 
 
